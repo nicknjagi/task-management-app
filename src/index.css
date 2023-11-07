@@ -33,3 +33,12 @@ body {
 .sidebar ul li.active {
   @apply bg-[#645FC6] text-white 
 }
+
+.tasks-container{
+  @apply p-6 text-neutral-400 flex gap-4
+}
+
+.task{
+  @apply p-4 bg-[#2C2C38] rounded-lg
+}
+
