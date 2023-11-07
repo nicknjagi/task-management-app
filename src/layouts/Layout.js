@@ -7,11 +7,9 @@ export default function Layout() {
   return (
     <div className='container'>
       <Sidebar />
-      <div>
+      <div className='w-full  border-l border-slate-500'>
         <Navbar />
-          <main>
-            <Outlet />
-          </main>
+        <Outlet />
       </div>
     </div>
   )
