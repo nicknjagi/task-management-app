@@ -43,7 +43,7 @@ body {
 }
 
 .add-task-form{
-  @apply p-6 mx-2 mt-10 bg-[#2C2C38] rounded-lg text-white w-full max-w-[600px]
+  @apply p-6 mx-2 md:mx-auto mt-10 bg-[#2C2C38] rounded-lg  w-full max-w-[600px]
 }
 
 .add-task-form h2 {
@@ -58,7 +58,7 @@ body {
   @apply font-semibold
 }
 
-.form-row input, .add-task-form textarea, .add-task-form select {
+.form-row input, .add-task-form textarea, select {
   @apply p-2 border border-neutral-600 bg-inherit rounded placeholder:text-neutral-500
 }
 
