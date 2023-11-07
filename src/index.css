@@ -19,7 +19,7 @@ body {
 }
 
 .sidebar button{
-  @apply ml-auto absolute top-1/2 -translate-y-1/2 -right-9 px-2 rotate-90 bg-[#645FC6] text-white rounded-2xl
+  @apply ml-auto absolute top-1/2 -translate-y-1/2 -right-9 px-2 rotate-90 bg-btn-purple text-white rounded-2xl
 }
 
 .sidebar.open button{
@@ -31,7 +31,7 @@ body {
 }
 
 .sidebar ul li.active {
-  @apply bg-[#645FC6] text-white 
+  @apply bg-btn-purple text-white 
 }
 
 .tasks-container{
@@ -42,3 +42,34 @@ body {
   @apply p-4 bg-[#2C2C38] rounded-lg
 }
 
+.add-task-form{
+  @apply p-6 mx-2 mt-10 bg-[#2C2C38] rounded-lg text-white w-full max-w-[600px]
+}
+
+.add-task-form h2 {
+  @apply text-2xl font-semibold mb-6 flex flex-col
+}
+
+.form-row{
+  @apply flex flex-col gap-2
+}
+
+.add-task-form label, h2, h3{
+  @apply font-semibold
+}
+
+.form-row input, .add-task-form textarea, .add-task-form select {
+  @apply p-2 border border-neutral-600 bg-inherit rounded placeholder:text-neutral-500
+}
+
+.add-task-form textarea {
+  @apply h-28
+}
+
+option{
+  @apply bg-[#2C2C38]
+}
+
+.create-task-btn, .subtask-btn{
+  @apply rounded-3xl p-3 font-semibold
+}
