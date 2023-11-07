@@ -4,7 +4,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'noto': ['Noto Sans', 'sans-serif'],
+        noto: ['Noto Sans', 'sans-serif'],
+      },
+      colors: {
+        'btn-purple': '#645FC6',
       },
     },
   },
