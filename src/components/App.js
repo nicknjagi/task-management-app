@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from '../layouts/Layout'
 import Tasks from './Tasks'
-import CreateBoard from './CreateBoard'
-import AddTask from './AddTask'
-import TaskDetail from './TaskDetail'
+import CreateBoard from '../pages/CreateBoard'
+import AddTask from '../pages/AddTask'
+import TaskDetail from '../pages/TaskDetail'
 
 function App() {
   return (
