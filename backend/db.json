@@ -2,12 +2,13 @@
   "boards": [
     {
       "board_id": 1,
-      "product_launch": [
+      "board_name": "Product Launch",
+      "board_tasks": [
         {
           "task_id": 1,
           "title": "Build UI for onboarding flow",
           "description": "JSONLint is a validator and reformatter for JSON, a lightweight data-interchange format. Copy and paste, directly type, or input a URL in the editor above and let JSONLint tidy and validate your messy JSON code.",
-          "status": "in progress",
+          "status": "todo",
           "subtasks": [
             {
               "subtask_id": 1,
@@ -25,17 +26,12 @@
               "completed": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "board_id": 2,
-      "product_launch": [
+        },
         {
-          "task_id": 4,
+          "task_id": 2,
           "title": "Set up Backend Server",
           "description": "Develop and configure the backend server for handling user data and interactions.",
-          "status": "todo",
+          "status": "doing",
           "subtasks": [
             {
               "subtask_id": 4,
@@ -55,10 +51,10 @@
           ]
         },
         {
-          "task_id": 5,
+          "task_id": 3,
           "title": "Testing and Quality Assurance",
           "description": "Thoroughly test the application for bugs and ensure the quality of the product.",
-          "status": "todo",
+          "status": "done",
           "subtasks": [
             {
               "subtask_id": 7,
@@ -73,30 +69,82 @@
             {
               "subtask_id": 9,
               "subtask": "Automate testing",
+              "completed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "board_id": 2,
+      "board_name": "Marketing Campaign",
+      "board_tasks": [
+        {
+          "task_id": 4,
+          "title": "Create Marketing Plan",
+          "description": "Develop a comprehensive marketing plan for a new product launch.",
+          "status": "todo",
+          "subtasks": [
+            {
+              "subtask_id": 10,
+              "subtask": "Market research and analysis",
+              "completed": false
+            },
+            {
+              "subtask_id": 11,
+              "subtask": "Identify target audience",
+              "completed": false
+            },
+            {
+              "subtask_id": 12,
+              "subtask": "Plan advertising strategies",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "task_id": 5,
+          "title": "Design Marketing Materials",
+          "description": "Create marketing materials for use in advertising and promotional activities.",
+          "status": "doing",
+          "subtasks": [
+            {
+              "subtask_id": 13,
+              "subtask": "Design banners and posters",
+              "completed": true
+            },
+            {
+              "subtask_id": 14,
+              "subtask": "Prepare social media content",
+              "completed": true
+            },
+            {
+              "subtask_id": 15,
+              "subtask": "Produce video commercials",
               "completed": false
             }
           ]
         },
         {
           "task_id": 6,
-          "title": "Implement User Onboarding",
-          "description": "Create a smooth onboarding experience for new users.",
-          "status": "in progress",
+          "title": "Execute Marketing Campaign",
+          "description": "Implement the marketing plan and launch advertising campaigns.",
+          "status": "done",
           "subtasks": [
             {
-              "subtask_id": 10,
-              "subtask": "Design onboarding screens",
+              "subtask_id": 16,
+              "subtask": "Run social media ads",
               "completed": true
             },
             {
-              "subtask_id": 11,
-              "subtask": "Implement onboarding logic",
+              "subtask_id": 17,
+              "subtask": "Monitor ad performance",
               "completed": true
             },
             {
-              "subtask_id": 12,
-              "subtask": "User feedback collection",
-              "completed": false
+              "subtask_id": 18,
+              "subtask": "Collect campaign data",
+              "completed": true
             }
           ]
         }
@@ -104,72 +152,73 @@
     },
     {
       "board_id": 3,
-      "product_launch": [
+      "board_name": "User Documentation",
+      "board_tasks": [
         {
           "task_id": 7,
-          "title": "Integrate Payment Gateway",
-          "description": "Integrate a secure payment gateway for subscription-based services.",
-          "status": "in progress",
+          "title": "Write User Guides",
+          "description": "Create user guides to help customers use the product effectively.",
+          "status": "doing",
           "subtasks": [
             {
-              "subtask_id": 13,
-              "subtask": "Choose payment gateway provider",
+              "subtask_id": 19,
+              "subtask": "Gather product information",
               "completed": true
             },
             {
-              "subtask_id": 14,
-              "subtask": "Implement payment processing",
+              "subtask_id": 20,
+              "subtask": "Draft user guide content",
               "completed": true
             },
             {
-              "subtask_id": 15,
-              "subtask": "Test payment flow",
+              "subtask_id": 21,
+              "subtask": "Review and edit guides",
               "completed": false
             }
           ]
         },
         {
           "task_id": 8,
-          "title": "Launch Marketing Campaign",
-          "description": "Plan and execute a marketing campaign to promote the product launch.",
-          "status": "in progress",
+          "title": "Create Video Tutorials",
+          "description": "Produce video tutorials to demonstrate product features and usage.",
+          "status": "todo",
           "subtasks": [
             {
-              "subtask_id": 16,
-              "subtask": "Create marketing materials",
+              "subtask_id": 22,
+              "subtask": "Script video content",
               "completed": true
             },
             {
-              "subtask_id": 17,
-              "subtask": "Set up social media ads",
-              "completed": true
+              "subtask_id": 23,
+              "subtask": "Record video tutorials",
+              "completed": false
             },
             {
-              "subtask_id": 18,
-              "subtask": "Analyze campaign performance",
+              "subtask_id": 24,
+              "subtask": "Edit and publish videos",
               "completed": false
             }
           ]
         },
         {
           "task_id": 9,
-          "title": "User Documentation",
-          "description": "Create user-friendly documentation for the product.",
+          "title": "Update FAQ Section",
+          "description": "Revise and expand the Frequently Asked Questions (FAQ) section for user assistance.",
           "status": "todo",
           "subtasks": [
             {
-              "subtask_id": 19,
-              "subtask": "Write user guides",
+              "subtask_id": 25,
+              "subtask": "Review existing FAQs",
               "completed": true
             },
             {
-              "subtask_id": 20,
-              "subtask": "Create video tutorials",
+              "subtask_id": 26,
+              "subtask": "Add new FAQs based on user feedback",
               "completed": false
             },
             {
-              "subtask_id": 21,
-              "subtask": "Update FAQ section",
+              "subtask_id": 27,
+              "subtask": "Format and publish updated FAQs",
               "completed": false
             }
           ]
