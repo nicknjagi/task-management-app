@@ -1,5 +1,5 @@
 import React from 'react'
-import AddTaskForm from './AddTaskForm'
+import AddTaskForm from '../components/AddTaskForm'
 import { NavLink } from 'react-router-dom'
 
 export default function AddTask() {
