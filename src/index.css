@@ -11,7 +11,7 @@ body {
 }
 
 .sidebar{
-  @apply bg-[#2C2C38] py-6 absolute top-0 left-0 w-full md:w-[400px] h-screen transition duration-200 -translate-x-full
+  @apply bg-[#2C2C38] py-6 absolute top-0 left-0 w-full md:min-w-[250px] md:max-w-[300px] h-screen transition duration-200 -translate-x-full border-r border-slate-500 
 }
 
 .open{
@@ -35,7 +35,7 @@ body {
 }
 
 .tasks-container{
-  @apply p-6 text-neutral-400 flex gap-4
+  @apply p-6 text-neutral-400 flex justify-start gap-4 overflow-x-auto
 }
 
 .task{
