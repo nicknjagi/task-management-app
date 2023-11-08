@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function CreateBoard() {
   return (
-    <div>
+    <section className="flex items-center justify-center w-full">
       
-    </div>
+    </section>
   )
 }
