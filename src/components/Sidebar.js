@@ -25,7 +25,7 @@ export default function Sidebar() {
         <NavLink to="/create" className="px-6 mt-3 text-[#645FC6]">
           + Create New Board
         </NavLink>
-        <button onClick={handleClick}>view</button>
+        <button onClick={handleClick}>{isOpen? 'Hide sidebar' : 'Show Sidebar'}</button>
       </div>
     </aside>
   )
