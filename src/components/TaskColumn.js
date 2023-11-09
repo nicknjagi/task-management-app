@@ -12,7 +12,7 @@ export default function TaskColumn({title, taskArr}) {
           const doneSubtasks = task.subtasks.filter(
             (el) => el.completed === true
           ).length
-          return <Task task={task} doneSubtasks={doneSubtasks} />
+          return <Task key={task.id} task={task} doneSubtasks={doneSubtasks} />
         })}
       </div>
     </section>
