@@ -6,7 +6,7 @@ import { BoardsContext } from '../layouts/Layout'
 
 export default function CreateBoard() {
   const [name, setName] = useState('')
-  const {boards, setBoards} = useContext(BoardsContext)
+  const {boards, setBoards, setCurrentBoard} = useContext(BoardsContext)
   const navigate = useNavigate()
   const MySwal = withReactContent(Swal) 
 
@@ -29,6 +29,7 @@ export default function CreateBoard() {
     .then(res => res.json())
     .then((data) => {
       setBoards([...boards, data])
+      setCurrentBoard(data)
       MySwal.fire({
         text: 'Board created!',
         icon: 'success',
