@@ -2,12 +2,18 @@ import React, { useEffect, useState} from 'react'
 import { NavLink, useNavigate, useParams} from 'react-router-dom'
 import Loader from '../components/Loader'
 import elipsis from '../assets/images/ellipsis-vertical-circle-outline.svg'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 export default function TaskDetail() {
   const [currentTask, setCurrentTask] = useState({})
+  const [defaultTask, setDefaultTask] = useState('')
   const [isLoading, setIsLoading] = useState(true)
+  const [showDelete, setShowDelete] = useState(false)
   const params = useParams()
   const navigate = useNavigate()
+
+  const MySwal = withReactContent(Swal) 
 
   useEffect(() => {
     setIsLoading(true)
@@ -15,6 +21,7 @@ export default function TaskDetail() {
       .then((res) => res.json())
       .then((data) => {
         setCurrentTask(data)
+        setDefaultTask(data)
         setIsLoading(false)
       })
     
@@ -39,6 +46,10 @@ export default function TaskDetail() {
 
   function handleSubmit(e){
     e.preventDefault()
+    if (currentTask === defaultTask){
+      navigate('/')
+      return
+    }
     fetch(`https://task-management-app-ibvr.onrender.com/tasks/${params.id}`, {
       method: 'PATCH',
       headers: {
@@ -46,7 +57,40 @@ export default function TaskDetail() {
       },
       body: JSON.stringify(currentTask),
     })
-    navigate('/')
+    .then(res=>{
+      MySwal.fire({
+        text: 'Task has been updated!',
+        icon: 'success',
+        confirmButtonText: 'OK',
+      })
+    })
+  }
+
+  function handleClick(){
+    setShowDelete(!showDelete)
+  }
+
+  function deleteTask(id){
+    MySwal.fire({
+      title: 'Do you want to delete the task?',
+      showCancelButton: true,
+      icon:'warning',
+      confirmButtonText: 'Delete',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://task-management-app-ibvr.onrender.com/tasks/${params.id}`, {
+          method:'DELETE',
+          headers:{
+            'Content-Type':'application/json'
+          }
+        })
+        .then(()=>{
+          Swal.fire('Task has been deleted!', '', 'success').then(() => navigate('/'))
+        })
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
   }
 
   if(isLoading) return <Loader />
@@ -62,13 +106,14 @@ export default function TaskDetail() {
         Back
       </NavLink>
       <form className="p-6 mt-6 mx-auto bg-[#2C2C38] rounded-lg text-white w-full max-w-[600px]">
-        <div className="flex justify-between items-center mb-6">
+        <div className="relative flex justify-between items-center mb-8">
           <h2 className="text-lg ">{title}</h2>
-          <button type="button" className="w-6" aria-label="options">
+          <button type="button" className="w-6" aria-label="options" onClick={handleClick}>
             <img src={elipsis} alt="delete icon" />
           </button>
+          {showDelete && <button type='button' className='absolute right-0 -bottom-8 py-1 px-2 bg-red-500 hover:bg-red-600 rounded-md' onClick={()=> deleteTask(params.id)}>Delete</button>}
         </div>
-        <p className="text-neutral-400 mb-6">{description}</p>
+        <p className="text-neutral-400 mb-8">{description}</p>
         <h3>
           Subtasks({doneTasks} of {subtasks.length})
         </h3>
