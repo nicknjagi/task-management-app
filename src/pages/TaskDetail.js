@@ -11,7 +11,7 @@ export default function TaskDetail() {
   const [defaultTask, setDefaultTask] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [showDelete, setShowDelete] = useState(false)
-  const {tasks,setTasks, currentBoard} = useContext(BoardsContext)
+  const {setTasks, currentBoard} = useContext(BoardsContext)
   const params = useParams()
   const navigate = useNavigate()
 
