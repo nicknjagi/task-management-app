@@ -28,15 +28,13 @@ export default function Navbar() {
   }
 
   function deleteBoard(id){
-    const newBoards = boards.filter((board) => board.id !== id)
-    setBoards(newBoards)
-    
     MySwal.fire({
       title: 'Do you want to delete the board?',
       showCancelButton: true,
       icon: 'warning',
       confirmButtonText: 'Delete',
     }).then((result) => {
+      console.log(result);
       if (result.isConfirmed) {
         fetch(
           `https://task-management-app-ibvr.onrender.com/tasks/${id}`,
@@ -47,13 +45,16 @@ export default function Navbar() {
             },
           }
         ).then(() => {
-          Swal.fire('Board has been deleted!', '', 'success').then(() =>
-            setShowDelete(false)
-            )
+          Swal.fire('Board has been deleted!', '', 'success')
+          const newBoards = boards.filter((board) => board.id !== id)
+          setBoards(newBoards)
           setCurrentBoard(newBoards[0])
+          setShowDelete(false)
           })
         }
-        setShowDelete(false)
+        else if(result.isDismissed){
+          setShowDelete(false)
+        }
     })
   }
 
