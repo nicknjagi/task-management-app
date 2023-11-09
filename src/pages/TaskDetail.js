@@ -1,15 +1,17 @@
-import React, { useEffect, useState} from 'react'
+import React, { useContext, useEffect, useState} from 'react'
 import { NavLink, useNavigate, useParams} from 'react-router-dom'
 import Loader from '../components/Loader'
 import elipsis from '../assets/images/ellipsis-vertical-circle-outline.svg'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import { BoardsContext } from '../layouts/Layout'
 
 export default function TaskDetail() {
   const [currentTask, setCurrentTask] = useState({})
   const [defaultTask, setDefaultTask] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [showDelete, setShowDelete] = useState(false)
+  const {setTasks, currentBoard} = useContext(BoardsContext)
   const params = useParams()
   const navigate = useNavigate()
 
@@ -26,6 +28,16 @@ export default function TaskDetail() {
       })
     
   }, [params.id])
+
+  function fetchTasks(){
+    setIsLoading(true)
+    fetch('https://task-management-app-ibvr.onrender.com/tasks')
+      .then((res) => res.json())
+      .then((data) => {
+        setTasks(data.filter((task) => task.board_id === currentBoard.id))
+        setIsLoading(false)
+      })
+  }
 
   function handleCheckbox(el){
     const updatedSubtasks = currentTask.subtasks.map(task => {
@@ -62,6 +74,8 @@ export default function TaskDetail() {
         icon: 'success',
         confirmButtonText: 'OK',
       })
+      fetchTasks()
+      navigate('/')
     })
   }
 
