@@ -11,7 +11,7 @@ export default function TaskDetail() {
   const [defaultTask, setDefaultTask] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [showDelete, setShowDelete] = useState(false)
-  const {setTasks, currentBoard} = useContext(BoardsContext)
+  const {tasks,setTasks, currentBoard} = useContext(BoardsContext)
   const params = useParams()
   const navigate = useNavigate()
 
@@ -98,7 +98,10 @@ export default function TaskDetail() {
           }
         })
         .then(()=>{
-          Swal.fire('Task has been deleted!', '', 'success').then(() => navigate('/'))
+          Swal.fire('Task has been deleted!', '', 'success').then(() =>{
+            fetchTasks()
+            navigate('/')
+          })
         })
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')
