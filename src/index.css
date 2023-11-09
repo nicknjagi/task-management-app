@@ -43,7 +43,7 @@ body {
 }
 
 .add-task-form{
-  @apply p-2 md:p-6 mx-auto mt-10 bg-[#2C2C38] rounded-lg  w-full max-w-[600px]
+  @apply p-2 md:p-6 mx-auto mt-10 bg-[#2C2C38] rounded-lg  w-full 
 }
 
 .add-task-form h2 {
