@@ -429,6 +429,402 @@
           "completed": true
         }
       ]
+    },
+    {
+      "id": 21,
+      "board_id": 3,
+      "title": "User Engagement Survey",
+      "description": "Create and conduct a user engagement survey to gather insights into user satisfaction and preferences.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 51,
+          "subtask": "Design survey questionnaire",
+          "completed": false
+        },
+        {
+          "subtask_id": 52,
+          "subtask": "Distribute survey to users",
+          "completed": false
+        },
+        {
+          "subtask_id": 53,
+          "subtask": "Analyze survey responses",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "board_id": 1,
+      "title": "Product Feature Enhancements",
+      "description": "Identify and implement enhancements to existing product features based on user feedback and market trends.",
+      "status": "todo",
+      "subtasks": [
+        {
+          "subtask_id": 54,
+          "subtask": "Conduct feature analysis",
+          "completed": false
+        },
+        {
+          "subtask_id": 55,
+          "subtask": "Prioritize feature enhancements",
+          "completed": false
+        },
+        {
+          "subtask_id": 56,
+          "subtask": "Implement selected enhancements",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "board_id": 2,
+      "title": "Content Creation for Social Media",
+      "description": "Develop engaging content for social media platforms to maintain brand presence and user engagement.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 57,
+          "subtask": "Create visual content",
+          "completed": true
+        },
+        {
+          "subtask_id": 58,
+          "subtask": "Write engaging captions",
+          "completed": true
+        },
+        {
+          "subtask_id": 59,
+          "subtask": "Schedule posts",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "board_id": 3,
+      "title": "Accessibility Audit",
+      "description": "Conduct an accessibility audit to ensure the product is usable by individuals with disabilities.",
+      "status": "todo",
+      "subtasks": [
+        {
+          "subtask_id": 60,
+          "subtask": "Review accessibility guidelines",
+          "completed": false
+        },
+        {
+          "subtask_id": 61,
+          "subtask": "Conduct accessibility testing",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "board_id": 1,
+      "title": "User Training Webinars",
+      "description": "Organize webinars to provide users with in-depth training on advanced features and functionalities.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 62,
+          "subtask": "Plan webinar content",
+          "completed": false
+        },
+        {
+          "subtask_id": 63,
+          "subtask": "Promote webinars",
+          "completed": false
+        },
+        {
+          "subtask_id": 64,
+          "subtask": "Host live training sessions",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "board_id": 2,
+      "title": "Data Backup and Recovery",
+      "description": "Implement a robust data backup and recovery system to safeguard user data.",
+      "status": "done",
+      "subtasks": [
+        {
+          "subtask_id": 65,
+          "subtask": "Select backup solutions",
+          "completed": true
+        },
+        {
+          "subtask_id": 66,
+          "subtask": "Configure backup schedules",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "board_id": 3,
+      "title": "Community Forum Setup",
+      "description": "Establish a community forum for users to discuss, share experiences, and seek help.",
+      "status": "done",
+      "subtasks": [
+        {
+          "subtask_id": 67,
+          "subtask": "Choose forum platform",
+          "completed": true
+        },
+        {
+          "subtask_id": 68,
+          "subtask": "Set up forum categories",
+          "completed": true
+        },
+        {
+          "subtask_id": 69,
+          "subtask": "Promote community engagement",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "board_id": 1,
+      "title": "Localization Implementation",
+      "description": "Implement language localization features to make the product accessible to a global audience.",
+      "status": "todo",
+      "subtasks": [
+        {
+          "subtask_id": 70,
+          "subtask": "Identify target languages",
+          "completed": false
+        },
+        {
+          "subtask_id": 71,
+          "subtask": "Translate content",
+          "completed": false
+        },
+        {
+          "subtask_id": 72,
+          "subtask": "Test language implementation",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "board_id": 2,
+      "title": "Product Demos and Tutorials",
+      "description": "Create interactive product demos and tutorials to guide users through key features.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 73,
+          "subtask": "Storyboard product demos",
+          "completed": true
+        },
+        {
+          "subtask_id": 74,
+          "subtask": "Record tutorial videos",
+          "completed": false
+        },
+        {
+          "subtask_id": 75,
+          "subtask": "Edit and enhance demos",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "board_id": 3,
+      "title": "User Satisfaction Surveys",
+      "description": "Periodically conduct surveys to measure user satisfaction and identify areas for improvement.",
+      "status": "done",
+      "subtasks": [
+        {
+          "subtask_id": 76,
+          "subtask": "Distribute satisfaction surveys",
+          "completed": true
+        },
+        {
+          "subtask_id": 77,
+          "subtask": "Analyze survey results",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "board_id": 1,
+      "title": "Performance Monitoring",
+      "description": "Implement tools for real-time performance monitoring to ensure optimal user experience.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 78,
+          "subtask": "Integrate performance monitoring tools",
+          "completed": false
+        },
+        {
+          "subtask_id": 79,
+          "subtask": "Set up alerts for performance issues",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "board_id": 2,
+      "title": "Social Media Analytics",
+      "description": "Monitor and analyze social media analytics to measure the impact of marketing campaigns.",
+      "status": "todo",
+      "subtasks": [
+        {
+          "subtask_id": 80,
+          "subtask": "Connect social media accounts",
+          "completed": false
+        },
+        {
+          "subtask_id": 81,
+          "subtask": "Analyze engagement metrics",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "board_id": 3,
+      "title": "Cybersecurity Training",
+      "description": "Conduct cybersecurity training sessions to educate the team on best practices and threats.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 82,
+          "subtask": "Develop cybersecurity training materials",
+          "completed": false
+        },
+        {
+          "subtask_id": 83,
+          "subtask": "Conduct training sessions",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "board_id": 1,
+      "title": "Product Roadmap Planning",
+      "description": "Plan the product roadmap for future releases, considering user feedback and market trends.",
+      "status": "done",
+      "subtasks": [
+        {
+          "subtask_id": 84,
+          "subtask": "Gather user feature requests",
+          "completed": true
+        },
+        {
+          "subtask_id": 85,
+          "subtask": "Prioritize roadmap items",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "board_id": 2,
+      "title": "Cross-Platform Compatibility",
+      "description": "Ensure the product is compatible with various devices and operating systems.",
+      "status": "todo",
+      "subtasks": [
+        {
+          "subtask_id": 86,
+          "subtask": "Test on multiple devices",
+          "completed": false
+        },
+        {
+          "subtask_id": 87,
+          "subtask": "Optimize for different platforms",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "board_id": 3,
+      "title": "Competitor Analysis",
+      "description": "Conduct regular competitor analysis to stay informed about industry trends and competitor strategies.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 88,
+          "subtask": "Identify key competitors",
+          "completed": false
+        },
+        {
+          "subtask_id": 89,
+          "subtask": "Monitor competitor activities",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "board_id": 1,
+      "title": "Customer Success Stories",
+      "description": "Collect and showcase customer success stories to build trust and credibility.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 90,
+          "subtask": "Reach out to satisfied customers",
+          "completed": false
+        },
+        {
+          "subtask_id": 91,
+          "subtask": "Create success story content",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "board_id": 2,
+      "title": "Privacy Policy Update",
+      "description": "Review and update the privacy policy to align with current regulations and ensure transparency.",
+      "status": "done",
+      "subtasks": [
+        {
+          "subtask_id": 92,
+          "subtask": "Review privacy regulations",
+          "completed": true
+        },
+        {
+          "subtask_id": 93,
+          "subtask": "Update privacy policy document",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "board_id": 3,
+      "title": "Product Demographic Analysis",
+      "description": "Analyze user demographics to tailor marketing strategies and product features accordingly.",
+      "status": "todo",
+      "subtasks": [
+        {
+          "subtask_id": 94,
+          "subtask": "Collect demographic data",
+          "completed": false
+        },
+        {
+          "subtask_id": 95,
+          "subtask": "Analyze demographic trends",
+          "completed": false
+        }
+      ]
     }
   ],
   "boards": [
