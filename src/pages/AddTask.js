@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 export default function AddTask() {
   return (
-    <section className="flex flex-col justify-center w-full text-white p-4 mt-6 mx-2 ">
+    <section className="flex flex-col justify-center w-full text-white p-4 mt-6 mb-8 mx-2 ">
       <NavLink to="/" >
         Back
       </NavLink>
