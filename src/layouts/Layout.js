@@ -8,17 +8,14 @@ export const BoardsContext = createContext()
 
 export default function Layout() {
   const [boards, setBoards] = useState('')
-  const [isLoading, setIsLoading] = useState(true)
   const [currentBoard, setCurrentBoard] = useState('')
 
   useEffect(() => {
-    setIsLoading(true)
     fetch('https://task-management-app-ibvr.onrender.com/boards')
       .then((res) => res.json())
       .then((data) => {
         setBoards(data)
         setCurrentBoard(data[0])
-        setIsLoading(false)
       })
     }, [])
 
