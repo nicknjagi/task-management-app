@@ -7,7 +7,7 @@ import withReactContent from 'sweetalert2-react-content'
 export default function AddTaskForm() {
   const [subtasks, setSubtasks] = useState([])
   const [subtask, setSubtask] = useState('')
-  const { currentBoard } = useContext(BoardsContext)
+  const { tasks, setTasks,currentBoard } = useContext(BoardsContext)
   const [task, setTask] = useState({
     title: '',
     board_id:currentBoard.id,
@@ -48,7 +48,11 @@ export default function AddTaskForm() {
       }).then(res => {
         navigate('/')
       })
+      return res.json()
+    }).then(data=> {
+      setTasks([...tasks, data])
     })
+
     setTask({
       title: '',
       board_id: currentBoard.id,
