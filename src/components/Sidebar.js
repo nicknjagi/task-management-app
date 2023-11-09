@@ -4,7 +4,7 @@ import { BoardsContext } from '../layouts/Layout'
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false)
-  const { data, currentBoard, setCurrentBoard } = useContext(BoardsContext)
+  const { boards, currentBoard, setCurrentBoard } = useContext(BoardsContext)
 
   function handleClick(){
     setIsOpen(!isOpen)
@@ -14,11 +14,11 @@ export default function Sidebar() {
     <aside className={isOpen ? "sidebar open" : "sidebar"}>
       <div className="relative h-screen flex flex-col ">
         <h1 className="px-6 mb-6 text-2xl text-white font-medium">Kanban</h1>
-        <h3 className="px-6 mb-3 text-neutral-400">ALL BOARDS (3)</h3>
+        <h3 className="px-6 mb-3 text-neutral-400">ALL BOARDS ({boards.length})</h3>
         <ul className="text-neutral-400">
-          {data && data.map(board => {
+          {boards && boards.map(board => {
             return (
-              <li onClick={() => setCurrentBoard(board)} className={board === currentBoard? 'active' : ''}>{board.board_name}</li>
+              <li key={board.id} onClick={() => setCurrentBoard(board)} className={board === currentBoard? 'active' : ''}><NavLink to="/">{board.board_name}</NavLink></li>
             )
           })}
         </ul>
