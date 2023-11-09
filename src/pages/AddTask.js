@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom'
 
 export default function AddTask() {
   return (
-    <section className="flex flex-col justify-center w-full text-white p-4 mt-6 mb-8 mx-2 ">
-      <NavLink to="/" >
+    <section className="flex flex-col justify-center w-full text-white py-2 mt-6 mb-8 ">
+      <NavLink to="/" className='pl-6'>
         Back
       </NavLink>
       <AddTaskForm />
