@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import { NavLink, useNavigate, useParams} from 'react-router-dom'
-import elipsis from '../assets/icons/ellipsis-vertical-circle-outline.svg'
+import Loader from '../components/Loader'
+import elipsis from '../assets/images/ellipsis-vertical-circle-outline.svg'
 
 export default function TaskDetail() {
   const [currentTask, setCurrentTask] = useState({})
@@ -48,7 +49,7 @@ export default function TaskDetail() {
     navigate('/')
   }
 
-  if(isLoading) return <h1>Loading...</h1>
+  if(isLoading) return <Loader />
 
   const { title, description, status, subtasks } = currentTask
   const doneTasks = subtasks.filter(
@@ -56,12 +57,16 @@ export default function TaskDetail() {
   ).length
 
   return (
-    <section className="flex flex-col justify-start p-4 mx-2 mt-6 rounded-lg text-white w-full ">
-      <NavLink to="/">Back</NavLink>
+    <section className="flex flex-col justify-start p-2 mt-6 rounded-lg text-white w-full ">
+      <NavLink to="/" className="pl-6">
+        Back
+      </NavLink>
       <form className="p-6 mt-6 mx-auto bg-[#2C2C38] rounded-lg text-white w-full max-w-[600px]">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-lg ">{title}</h2>
-          <button type='button' className='w-6' aria-label='options'><img src={elipsis} alt="delete icon" /></button>
+          <button type="button" className="w-6" aria-label="options">
+            <img src={elipsis} alt="delete icon" />
+          </button>
         </div>
         <p className="text-neutral-400 mb-6">{description}</p>
         <h3>
@@ -69,7 +74,9 @@ export default function TaskDetail() {
         </h3>
         {subtasks.map((subtask) => {
           return (
-            <div className="subtasks my-2 p-3 rounded-md flex gap-4 bg-[#21212D]">
+            <div
+              key={subtask.subtask_id}
+              className="subtasks my-2 p-3 rounded-md flex gap-4 bg-[#21212D]">
               <input
                 type="checkbox"
                 name="subtask"
@@ -105,7 +112,7 @@ export default function TaskDetail() {
           className="w-full mt-6 py-2 rounded-3xl bg-btn-purple hover:bg-violet-800 transition"
           onClick={handleSubmit}
           value="Submit">
-          Create Task
+          Update Task
         </button>
       </form>
     </section>
