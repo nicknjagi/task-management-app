@@ -117,7 +117,7 @@ export default function AddTaskForm() {
           <button
             type="button"
             onClick={handleNewSubtask}
-            className="subtask-btn bg-white text-btn-purple">
+            className="subtask-btn bg-white hover:bg-slate-200 text-btn-purple transition">
             + Add New Subtask
           </button>
         </div>
@@ -135,7 +135,7 @@ export default function AddTaskForm() {
         </div>
         <button
           type="submit"
-          className="create-task-btn bg-btn-purple "
+          className="create-task-btn bg-btn-purple hover:bg-violet-800 transition"
           onClick={handleSubmit}
           value="Submit">
           Create Task
