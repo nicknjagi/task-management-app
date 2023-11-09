@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { BoardsContext } from '../layouts/Layout'
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 export default function AddTaskForm() {
   const [subtasks, setSubtasks] = useState([])
@@ -15,6 +17,7 @@ export default function AddTaskForm() {
   })
 
   const navigate = useNavigate()
+  const MySwal = withReactContent(Swal) 
 
   function handleChange(e) {
     setTask({ ...task, [e.target.name]: e.target.value })
@@ -22,7 +25,14 @@ export default function AddTaskForm() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    if (Object.values(task).includes('')) return
+    if (Object.values(task).includes('')){
+      Swal.fire({
+        text: 'Please fill all fields',
+        icon: 'warning',
+        confirmButtonText: 'OK',
+      })
+      return
+    }
 
     fetch(`https://task-management-app-ibvr.onrender.com/tasks`, {
       method: 'POST',
@@ -30,6 +40,14 @@ export default function AddTaskForm() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ ...task, subtasks }),
+    }).then((res) => {
+      MySwal.fire({
+        text: 'Task has been updated!',
+        icon: 'success',
+        confirmButtonText: 'OK',
+      }).then(res => {
+        navigate('/')
+      })
     })
     setTask({
       title: '',
@@ -39,7 +57,6 @@ export default function AddTaskForm() {
       subtasks: [],
     })
     setSubtask([])
-    navigate('/')
   }
 
   function handleSubtask(e) {
