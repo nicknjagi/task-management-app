@@ -8,6 +8,8 @@ This application lets you manage your tasks, among other features.
 - React router
 - Tailwind CSS 
 - Ionicons [view](https://ionic.io/ionicons)
+- Loader from [loading.io](https://loading.io)
+- SweertAlert2 [view](https://sweetalert2.github.io/)
 
 ### Local setup
 
