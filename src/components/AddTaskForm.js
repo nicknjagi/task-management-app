@@ -81,8 +81,8 @@ export default function AddTaskForm() {
   }
 
   return (
-    <form className="add-task-form">
-      <h2>Add New Task</h2>
+    <form className="add-task-form max-w-[600px]">
+      <h2>Add new task</h2>
       <div className="flex flex-col gap-6">
         <div className="form-row">
           <label htmlFor="title">Title</label>
@@ -153,8 +153,7 @@ export default function AddTaskForm() {
         <button
           type="submit"
           className="create-task-btn bg-btn-purple hover:bg-violet-800 transition"
-          onClick={handleSubmit}
-          value="Submit">
+          onClick={handleSubmit}>
           Create Task
         </button>
       </div>
