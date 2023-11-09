@@ -1,229 +1,448 @@
 {
+  "tasks": [
+    {
+      "id": 1,
+      "board_id": 1,
+      "title": "Build UI for onboarding flow",
+      "description": "JSONLint is a validator and reformatter for JSON, a lightweight data-interchange format. Copy and paste, directly type, or input a URL in the editor above and let JSONLint tidy and validate your messy JSON code.",
+      "status": "todo",
+      "subtasks": [
+        {
+          "subtask_id": 1,
+          "subtask": "Design user interface",
+          "completed": false
+        },
+        {
+          "subtask_id": 2,
+          "subtask": "Implement user authentication",
+          "completed": false
+        },
+        {
+          "subtask_id": 3,
+          "subtask": "Create user profile setup",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "board_id": 2,
+      "title": "Set up Backend Server",
+      "description": "Develop and configure the backend server for handling user data and interactions.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 4,
+          "subtask": "Choose a technology stack",
+          "completed": true
+        },
+        {
+          "subtask_id": 5,
+          "subtask": "Implement database schema",
+          "completed": false
+        },
+        {
+          "subtask_id": 6,
+          "subtask": "Create API endpoints",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "board_id": 3,
+      "title": "Testing and Quality Assurance",
+      "description": "Thoroughly test the application for bugs and ensure the quality of the product.",
+      "status": "done",
+      "subtasks": [
+        {
+          "subtask_id": 7,
+          "subtask": "Write test cases",
+          "completed": true
+        },
+        {
+          "subtask_id": 8,
+          "subtask": "Perform manual testing",
+          "completed": true
+        },
+        {
+          "subtask_id": 9,
+          "subtask": "Automate testing",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "board_id": 1,
+      "title": "Implement User Onboarding",
+      "description": "Create a smooth onboarding experience for new users.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 10,
+          "subtask": "Design onboarding screens",
+          "completed": false
+        },
+        {
+          "subtask_id": 11,
+          "subtask": "Implement onboarding logic",
+          "completed": false
+        },
+        {
+          "subtask_id": 12,
+          "subtask": "User feedback collection",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "board_id": 2,
+      "title": "Integrate Payment Gateway",
+      "description": "Integrate a secure payment gateway for subscription-based services.",
+      "status": "todo",
+      "subtasks": [
+        {
+          "subtask_id": 13,
+          "subtask": "Choose payment gateway provider",
+          "completed": false
+        },
+        {
+          "subtask_id": 14,
+          "subtask": "Implement payment processing",
+          "completed": false
+        },
+        {
+          "subtask_id": 15,
+          "subtask": "Test payment flow",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "board_id": 3,
+      "title": "Launch Marketing Campaign",
+      "description": "Plan and execute a marketing campaign to promote the product launch.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 16,
+          "subtask": "Create marketing materials",
+          "completed": true
+        },
+        {
+          "subtask_id": 17,
+          "subtask": "Set up social media ads",
+          "completed": false
+        },
+        {
+          "subtask_id": 18,
+          "subtask": "Analyze campaign performance",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "board_id": 1,
+      "title": "User Documentation",
+      "description": "Create user-friendly documentation for the product.",
+      "status": "done",
+      "subtasks": [
+        {
+          "subtask_id": 19,
+          "subtask": "Write user guides",
+          "completed": true
+        },
+        {
+          "subtask_id": 20,
+          "subtask": "Create video tutorials",
+          "completed": true
+        },
+        {
+          "subtask_id": 21,
+          "subtask": "Update FAQ section",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "board_id": 2,
+      "title": "Bug Fixes and Optimization",
+      "description": "Identify and fix any bugs and optimize the application for better performance.",
+      "status": "todo",
+      "subtasks": [
+        {
+          "subtask_id": 22,
+          "subtask": "Bug tracking and analysis",
+          "completed": false
+        },
+        {
+          "subtask_id": 23,
+          "subtask": "Implement bug fixes",
+          "completed": false
+        },
+        {
+          "subtask_id": 24,
+          "subtask": "Performance optimization",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "board_id": 3,
+      "title": "Security Audit",
+      "description": "Conduct a security audit to ensure the application's data and user information is secure.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 25,
+          "subtask": "Identify security vulnerabilities",
+          "completed": false
+        },
+        {
+          "subtask_id": 26,
+          "subtask": "Implement security patches",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "board_id": 1,
+      "title": "Prepare Launch Event",
+      "description": "Plan a launch event to introduce the product to the public.",
+      "status": "done",
+      "subtasks": [
+        {
+          "subtask_id": 27,
+          "subtask": "Select event venue",
+          "completed": true
+        },
+        {
+          "subtask_id": 28,
+          "subtask": "Invite guests and media",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "board_id": 2,
+      "title": "User Feedback Analysis",
+      "description": "Collect and analyze user feedback to make improvements to the product.",
+      "status": "todo",
+      "subtasks": [
+        {
+          "subtask_id": 29,
+          "subtask": "Collect user feedback",
+          "completed": false
+        },
+        {
+          "subtask_id": 30,
+          "subtask": "Analyze feedback data",
+          "completed": false
+        },
+        {
+          "subtask_id": 31,
+          "subtask": "Implement feedback-driven changes",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "board_id": 3,
+      "title": "Customer Support Setup",
+      "description": "Establish a customer support system to assist users with inquiries and issues.",
+      "status": "done",
+      "subtasks": [
+        {
+          "subtask_id": 32,
+          "subtask": "Set up support ticket system",
+          "completed": true
+        },
+        {
+          "subtask_id": 33,
+          "subtask": "Hire support team",
+          "completed": true
+        },
+        {
+          "subtask_id": 34,
+          "subtask": "Provide training to support staff",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "board_id": 1,
+      "title": "Analytics and Reporting",
+      "description": "Set up analytics tools to track user behavior and gather insights.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 35,
+          "subtask": "Integrate analytics tools",
+          "completed": false
+        },
+        {
+          "subtask_id": 36,
+          "subtask": "Generate initial reports",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "board_id": 2,
+      "title": "Prepare User Notifications",
+      "description": "Create notification messages to keep users informed of important updates and events.",
+      "status": "todo",
+      "subtasks": [
+        {
+          "subtask_id": 37,
+          "subtask": "Design notification templates",
+          "completed": false
+        },
+        {
+          "subtask_id": 38,
+          "subtask": "Implement notification system",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "board_id": 3,
+      "title": "Product Launch Checklist",
+      "description": "Compile a checklist to ensure all tasks are completed before the product launch.",
+      "status": "done",
+      "subtasks": [
+        {
+          "subtask_id": 39,
+          "subtask": "Review and finalize all tasks",
+          "completed": true
+        },
+        {
+          "subtask_id": 40,
+          "subtask": "Double-check launch date and time",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "board_id": 1,
+      "title": "Prepare FAQs and Knowledge Base",
+      "description": "Create a comprehensive FAQs section and knowledge base for users to find answers to common questions.",
+      "status": "todo",
+      "subtasks": [
+        {
+          "subtask_id": 41,
+          "subtask": "Write FAQs",
+          "completed": false
+        },
+        {
+          "subtask_id": 42,
+          "subtask": "Create knowledge base articles",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "board_id": 2,
+      "title": "Review Legal and Compliance",
+      "description": "Ensure the product complies with legal and regulatory requirements.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 43,
+          "subtask": "Legal review",
+          "completed": false
+        },
+        {
+          "subtask_id": 44,
+          "subtask": "Compliance check",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "board_id": 3,
+      "title": "Prepare Launch Press Release",
+      "description": "Write a press release to announce the product launch to the media and the public.",
+      "status": "todo",
+      "subtasks": [
+        {
+          "subtask_id": 45,
+          "subtask": "Draft press release",
+          "completed": false
+        },
+        {
+          "subtask_id": 46,
+          "subtask": "Distribute to media outlets",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "board_id": 1,
+      "title": "Customer Onboarding Training",
+      "description": "Train customer support teams for effective onboarding assistance.",
+      "status": "doing",
+      "subtasks": [
+        {
+          "subtask_id": 47,
+          "subtask": "Develop training materials",
+          "completed": false
+        },
+        {
+          "subtask_id": 48,
+          "subtask": "Conduct training sessions",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "board_id": 2,
+      "title": "Post-Launch Analysis",
+      "description": "Analyze user feedback, product performance, and market response after the product launch.",
+      "status": "done",
+      "subtasks": [
+        {
+          "subtask_id": 49,
+          "subtask": "Collect post-launch feedback",
+          "completed": true
+        },
+        {
+          "subtask_id": 50,
+          "subtask": "Generate post-launch reports",
+          "completed": true
+        }
+      ]
+    }
+  ],
   "boards": [
     {
-      "board_id": 1,
-      "board_name": "Product Launch",
-      "board_tasks": [
-        {
-          "task_id": 1,
-          "title": "Build UI for onboarding flow",
-          "description": "JSONLint is a validator and reformatter for JSON, a lightweight data-interchange format. Copy and paste, directly type, or input a URL in the editor above and let JSONLint tidy and validate your messy JSON code.",
-          "status": "todo",
-          "subtasks": [
-            {
-              "subtask_id": 1,
-              "subtask": "Design user interface",
-              "completed": true
-            },
-            {
-              "subtask_id": 2,
-              "subtask": "Implement user authentication",
-              "completed": true
-            },
-            {
-              "subtask_id": 3,
-              "subtask": "Create user profile setup",
-              "completed": false
-            }
-          ]
-        },
-        {
-          "task_id": 2,
-          "title": "Set up Backend Server",
-          "description": "Develop and configure the backend server for handling user data and interactions.",
-          "status": "doing",
-          "subtasks": [
-            {
-              "subtask_id": 4,
-              "subtask": "Choose a technology stack",
-              "completed": true
-            },
-            {
-              "subtask_id": 5,
-              "subtask": "Implement database schema",
-              "completed": true
-            },
-            {
-              "subtask_id": 6,
-              "subtask": "Create API endpoints",
-              "completed": false
-            }
-          ]
-        },
-        {
-          "task_id": 3,
-          "title": "Testing and Quality Assurance",
-          "description": "Thoroughly test the application for bugs and ensure the quality of the product.",
-          "status": "done",
-          "subtasks": [
-            {
-              "subtask_id": 7,
-              "subtask": "Write test cases",
-              "completed": true
-            },
-            {
-              "subtask_id": 8,
-              "subtask": "Perform manual testing",
-              "completed": true
-            },
-            {
-              "subtask_id": 9,
-              "subtask": "Automate testing",
-              "completed": true
-            }
-          ]
-        }
-      ]
+      "id": 1,
+      "board_name": "Product Launch"
     },
     {
-      "board_id": 2,
-      "board_name": "Marketing Campaign",
-      "board_tasks": [
-        {
-          "task_id": 4,
-          "title": "Create Marketing Plan",
-          "description": "Develop a comprehensive marketing plan for a new product launch.",
-          "status": "todo",
-          "subtasks": [
-            {
-              "subtask_id": 10,
-              "subtask": "Market research and analysis",
-              "completed": false
-            },
-            {
-              "subtask_id": 11,
-              "subtask": "Identify target audience",
-              "completed": false
-            },
-            {
-              "subtask_id": 12,
-              "subtask": "Plan advertising strategies",
-              "completed": false
-            }
-          ]
-        },
-        {
-          "task_id": 5,
-          "title": "Design Marketing Materials",
-          "description": "Create marketing materials for use in advertising and promotional activities.",
-          "status": "doing",
-          "subtasks": [
-            {
-              "subtask_id": 13,
-              "subtask": "Design banners and posters",
-              "completed": true
-            },
-            {
-              "subtask_id": 14,
-              "subtask": "Prepare social media content",
-              "completed": true
-            },
-            {
-              "subtask_id": 15,
-              "subtask": "Produce video commercials",
-              "completed": false
-            }
-          ]
-        },
-        {
-          "task_id": 6,
-          "title": "Execute Marketing Campaign",
-          "description": "Implement the marketing plan and launch advertising campaigns.",
-          "status": "done",
-          "subtasks": [
-            {
-              "subtask_id": 16,
-              "subtask": "Run social media ads",
-              "completed": true
-            },
-            {
-              "subtask_id": 17,
-              "subtask": "Monitor ad performance",
-              "completed": true
-            },
-            {
-              "subtask_id": 18,
-              "subtask": "Collect campaign data",
-              "completed": true
-            }
-          ]
-        }
-      ]
+      "id": 2,
+      "board_name": "Marketing Campaign"
     },
     {
-      "board_id": 3,
-      "board_name": "User Documentation",
-      "board_tasks": [
-        {
-          "task_id": 7,
-          "title": "Write User Guides",
-          "description": "Create user guides to help customers use the product effectively.",
-          "status": "doing",
-          "subtasks": [
-            {
-              "subtask_id": 19,
-              "subtask": "Gather product information",
-              "completed": true
-            },
-            {
-              "subtask_id": 20,
-              "subtask": "Draft user guide content",
-              "completed": true
-            },
-            {
-              "subtask_id": 21,
-              "subtask": "Review and edit guides",
-              "completed": false
-            }
-          ]
-        },
-        {
-          "task_id": 8,
-          "title": "Create Video Tutorials",
-          "description": "Produce video tutorials to demonstrate product features and usage.",
-          "status": "todo",
-          "subtasks": [
-            {
-              "subtask_id": 22,
-              "subtask": "Script video content",
-              "completed": true
-            },
-            {
-              "subtask_id": 23,
-              "subtask": "Record video tutorials",
-              "completed": false
-            },
-            {
-              "subtask_id": 24,
-              "subtask": "Edit and publish videos",
-              "completed": false
-            }
-          ]
-        },
-        {
-          "task_id": 9,
-          "title": "Update FAQ Section",
-          "description": "Revise and expand the Frequently Asked Questions (FAQ) section for user assistance.",
-          "status": "todo",
-          "subtasks": [
-            {
-              "subtask_id": 25,
-              "subtask": "Review existing FAQs",
-              "completed": true
-            },
-            {
-              "subtask_id": 26,
-              "subtask": "Add new FAQs based on user feedback",
-              "completed": false
-            },
-            {
-              "subtask_id": 27,
-              "subtask": "Format and publish updated FAQs",
-              "completed": false
-            }
-          ]
-        }
-      ]
+      "id": 3,
+      "board_name": "User Documentation"
     }
   ]
 }
