@@ -19,11 +19,11 @@ body {
 }
 
 .sidebar button{
-  @apply ml-auto absolute top-1/2 -translate-y-1/2 -right-9 px-2 rotate-90 bg-btn-purple text-white rounded-2xl
+  @apply ml-auto absolute top-3/4 -right-20 px-2 py-[1px] rotate-90 bg-[#2C2C38] text-sm text-white rounded-2xl
 }
 
 .sidebar.open button{
-  @apply right-0
+  @apply right-1/2 rotate-0 translate-x-1/2 bg-[#21212D]
 }
 
 .sidebar ul li {
