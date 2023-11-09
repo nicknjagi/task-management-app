@@ -29,14 +29,13 @@ export default function TaskDetail() {
 
   function handleCheckbox(el){
     const updatedSubtasks = currentTask.subtasks.map(task => {
-      console.log(task.completed);
       if(task.subtask_id === el.subtask_id){
         return task.completed ? {...task,completed:false}:{...task,completed:true}
       }else{
         return task
       }
     })
-    console.log(updatedSubtasks);
+
     setCurrentTask({...currentTask,subtasks:updatedSubtasks})
   }
 
