@@ -11,7 +11,7 @@ body {
 }
 
 .sidebar{
-  @apply bg-[#2C2C38] py-6 absolute top-0 left-0 w-full md:min-w-[250px] md:max-w-[300px] h-full transition duration-200 -translate-x-full border-r border-slate-500 
+  @apply bg-[#2C2C38] py-6 absolute top-0 left-0 w-full md:min-w-[250px] md:max-w-[300px] h-full transition duration-200 -translate-x-full border-r border-slate-500 hidden md:block
 }
 
 .open{
@@ -19,7 +19,7 @@ body {
 }
 
 .sidebar button{
-  @apply absolute top-3/4 -right-[4.5rem] ml-2 px-3 py-[1px] rotate-90 bg-[#2C2C38] text-sm text-white rounded-2xl scale-0 md:scale-100 border border-neutral-700
+  @apply absolute top-3/4 -right-[4.5rem] ml-2 px-3 py-[1px] rotate-90 bg-[#2C2C38] text-sm text-neutral-400 rounded-2xl scale-0 md:scale-100 border border-neutral-700
 }
 
 .sidebar.open button{
