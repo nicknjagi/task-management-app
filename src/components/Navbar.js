@@ -59,7 +59,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="bg-[#2C2C38] border-b border-slate-500 w-full p-6 flex items-center justify-between text-white">
+    <header className="bg-[#2C2C38] border-b border-slate-500 w-full p-6 md:pl-10 flex items-center justify-between text-white">
       <div>
         <h2 className="hidden md:inline-block">
           {location.pathname === '/create'
