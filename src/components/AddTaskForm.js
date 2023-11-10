@@ -42,7 +42,7 @@ export default function AddTaskForm() {
       body: JSON.stringify({ ...task, subtasks }),
     }).then((res) => {
       MySwal.fire({
-        text: 'Task has been updated!',
+        text: 'Task has been created!',
         icon: 'success',
         confirmButtonText: 'OK',
       }).then(res => {
