@@ -12,7 +12,7 @@ export default function Sidebar() {
   
   return (
     <aside className={isOpen ? "sidebar open" : "sidebar"}>
-      <div className="relative h-screen flex flex-col ">
+      <div className="relative h-full flex flex-col ">
         <h1 className="px-6 mb-6 text-2xl text-white font-medium">Kanban</h1>
         <h3 className="px-6 mb-3 text-neutral-400">ALL BOARDS ({boards.length})</h3>
         <ul className="text-neutral-400">
