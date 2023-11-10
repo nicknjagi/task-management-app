@@ -117,8 +117,8 @@ export default function TaskDetail() {
   ).length
 
   return (
-    <section className="flex flex-col justify-start p-2 mt-6 rounded-lg text-white w-full ">
-      <NavLink to="/" className="pl-6">
+    <section className="section">
+      <NavLink to="/" className="pl-6 md:pl-10">
         Back
       </NavLink>
       <form className="p-6 mt-6 mx-auto bg-[#2C2C38] rounded-lg text-white w-full max-w-[600px]">
@@ -137,17 +137,32 @@ export default function TaskDetail() {
           return (
             <div
               key={subtask.subtask_id}
-              className="subtasks my-2 p-3 rounded-md flex gap-4 bg-[#21212D]">
+              className="subtasks my-2 p-3 rounded-md flex items-center gap-4 bg-[#21212D]">
               <input
+                className="relative peer"
                 type="checkbox"
-                name="subtask"
-                id={subtask.id}
+                name={subtask.subtask_id}
+                id={subtask.subtask_id}
                 checked={subtask.completed}
                 value={subtask.completed}
                 onChange={() => handleCheckbox(subtask)}
               />
+              <svg
+                className="
+                absolute 
+                w-4 h-4 mt-1
+                hidden peer-checked:block"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
               <label
-                htmlFor={subtask.id}
+                htmlFor={subtask.subtask_id}
                 className={
                   subtask.completed ? 'text-neutral-500 line-through' : ''
                 }>
