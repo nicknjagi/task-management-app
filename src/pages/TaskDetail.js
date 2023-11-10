@@ -5,6 +5,7 @@ import elipsis from '../assets/images/ellipsis-vertical-circle-outline.svg'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { BoardsContext } from '../layouts/Layout'
+import BackButton from '../components/BackButton'
 
 export default function TaskDetail() {
   const [currentTask, setCurrentTask] = useState({})
@@ -118,16 +119,25 @@ export default function TaskDetail() {
 
   return (
     <section className="section">
-      <NavLink to="/">
-        Back
-      </NavLink>
+      <BackButton />
       <form className="p-6 mt-6 mx-auto bg-[#2C2C38] rounded-lg text-white w-full max-w-[600px]">
         <div className="relative flex justify-between items-center mb-8">
           <h2 className="text-lg ">{title}</h2>
-          <button type="button" className="w-6" aria-label="options" onClick={handleClick}>
+          <button
+            type="button"
+            className="w-6"
+            aria-label="options"
+            onClick={handleClick}>
             <img src={elipsis} alt="delete icon" />
           </button>
-          {showDelete && <button type='button' className='absolute right-0 -bottom-8 py-1 px-2 bg-red-500 hover:bg-red-600 rounded-md' onClick={()=> deleteTask(params.id)}>Delete</button>}
+          {showDelete && (
+            <button
+              type="button"
+              className="absolute right-0 -bottom-8 py-1 px-2 bg-red-500 hover:bg-red-600 rounded-md"
+              onClick={() => deleteTask(params.id)}>
+              Delete
+            </button>
+          )}
         </div>
         <p className="text-neutral-400 mb-8">{description}</p>
         <h3>
