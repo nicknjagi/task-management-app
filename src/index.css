@@ -19,7 +19,7 @@ body {
 }
 
 .sidebar button{
-  @apply absolute top-3/4 -right-[4.5rem] ml-2 px-3 py-[1px] rotate-90 bg-[#2C2C38] text-sm text-neutral-400 rounded-2xl scale-0 md:scale-100 border border-neutral-700
+  @apply absolute top-3/4 -right-20 ml-2 px-3 py-[1px] rotate-90 bg-[#2C2C38] text-sm text-neutral-400 rounded-2xl scale-0 md:scale-100 border border-neutral-700
 }
 
 .sidebar.open button{
@@ -43,11 +43,11 @@ body {
 }
 
 .section{
-  @apply relative text-white py-6 md:ml-10 h-full overflow-y-auto
+  @apply relative text-white p-6 md:px-0 md:ml-10 h-full overflow-y-auto
 }
 
 .add-task-form{
-  @apply p-2 md:p-6 mx-auto mt-10 bg-[#2C2C38] rounded-lg  w-full 
+  @apply p-4 md:p-6 mx-auto mt-10 bg-[#2C2C38] rounded-lg  w-full 
 }
 
 .add-task-form h2 {
