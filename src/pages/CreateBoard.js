@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { BoardsContext } from '../layouts/Layout'
+import BackButton from '../components/BackButton'
 
 export default function CreateBoard() {
   const [name, setName] = useState('')
@@ -41,9 +42,7 @@ export default function CreateBoard() {
   }
   return (
     <section className="section">
-      <NavLink to="/">
-        Back
-      </NavLink>
+      <BackButton />
       <form className="add-task-form max-w-[500px]">
         <h2>Create new board</h2>
         <div className="flex flex-col gap-6">
