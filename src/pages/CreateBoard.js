@@ -40,8 +40,8 @@ export default function CreateBoard() {
     })
   }
   return (
-    <section className="flex flex-col w-full text-white py-2 mt-6 mb-8 ">
-      <NavLink to="/" className="pl-6">
+    <section className="section">
+      <NavLink to="/">
         Back
       </NavLink>
       <form className="add-task-form max-w-[500px]">
