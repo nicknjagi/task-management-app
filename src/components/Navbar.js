@@ -34,7 +34,6 @@ export default function Navbar() {
       icon: 'warning',
       confirmButtonText: 'Delete',
     }).then((result) => {
-      console.log(result);
       if (result.isConfirmed) {
         fetch(
           `https://task-management-app-ibvr.onrender.com/tasks/${id}`,
@@ -110,7 +109,7 @@ export default function Navbar() {
         {showDelete && (
           <button
             type="button"
-            className="absolute right-0 -bottom-10 py-1 px-2 bg-red-500 hover:bg-red-600 rounded-md"
+            className="absolute right-0 -bottom-10 w-32 py-1 px-2 bg-red-500 hover:bg-red-600 rounded-md"
             onClick={() => deleteBoard(currentBoard.id)}>
             Delete board
           </button>
