@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 export default function AddTask() {
   return (
     <section className="section">
-      <NavLink to="/" className="pl-6 md:pl-10">
+      <NavLink to="/" >
         Back
       </NavLink>
       <AddTaskForm />
