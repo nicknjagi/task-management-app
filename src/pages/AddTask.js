@@ -1,13 +1,11 @@
 import React from 'react'
 import AddTaskForm from '../components/AddTaskForm'
-import { NavLink } from 'react-router-dom'
+import BackButton from '../components/BackButton'
 
 export default function AddTask() {
   return (
     <section className="section">
-      <NavLink to="/" >
-        Back
-      </NavLink>
+      <BackButton />
       <AddTaskForm />
     </section>
   )
