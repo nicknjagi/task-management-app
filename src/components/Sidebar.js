@@ -16,7 +16,7 @@ export default function Sidebar() {
     <aside className={isOpen ? 'sidebar open' : 'sidebar'}>
       <div className="relative h-full flex flex-col ">
         <h1 className="px-6 mb-6 text-2xl text-white font-medium">Kanban</h1>
-        <h3 className="px-6 mb-3 text-neutral-400">
+        <h3 className="px-6 mb-3 text-neutral-400 text-sm tracking-widest">
           ALL BOARDS ({boards.length})
         </h3>
         <ul className="text-neutral-400">
