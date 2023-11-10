@@ -118,7 +118,7 @@ export default function TaskDetail() {
 
   return (
     <section className="section">
-      <NavLink to="/" className="pl-6 md:pl-10">
+      <NavLink to="/">
         Back
       </NavLink>
       <form className="p-6 mt-6 mx-auto bg-[#2C2C38] rounded-lg text-white w-full max-w-[600px]">
