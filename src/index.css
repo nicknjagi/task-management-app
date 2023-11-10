@@ -43,7 +43,7 @@ body {
 }
 
 .section{
-  @apply relative text-white mt-6 pb-24 w-full h-full overflow-y-auto
+  @apply relative text-white py-6 md:ml-10 h-full overflow-y-auto
 }
 
 .add-task-form{
