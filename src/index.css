@@ -19,7 +19,7 @@ body {
 }
 
 .sidebar button{
-  @apply absolute top-3/4 -right-20 ml-2 px-3 py-[1px] rotate-90 bg-[#2C2C38] text-sm text-neutral-400 rounded-2xl scale-0 md:scale-100 border border-neutral-700
+  @apply absolute bottom-12 -right-20 ml-2 px-3 py-[1px] rotate-90 bg-[#2C2C38] text-sm text-neutral-400 rounded-2xl scale-0 md:scale-100 border border-neutral-700
 }
 
 .sidebar.open button{
