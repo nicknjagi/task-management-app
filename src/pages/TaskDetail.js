@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState} from 'react'
-import { NavLink, useNavigate, useParams} from 'react-router-dom'
+import { useNavigate, useParams} from 'react-router-dom'
 import Loader from '../components/Loader'
 import elipsis from '../assets/images/ellipsis-vertical-circle-outline.svg'
 import Swal from 'sweetalert2'
