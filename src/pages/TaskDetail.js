@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState} from 'react'
 import { useNavigate, useParams} from 'react-router-dom'
 import Loader from '../components/Loader'
-import elipsis from '../assets/images/ellipsis-vertical-circle-outline.svg'
+import elipsis from '../assets/images/ellipsis-vertical.svg'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { BoardsContext } from '../layouts/Layout'
@@ -133,7 +133,7 @@ export default function TaskDetail() {
           {showDelete && (
             <button
               type="button"
-              className="absolute right-0 -bottom-8 py-1 px-2 bg-red-500 hover:bg-red-600 rounded-md"
+              className="absolute right-3 -bottom-8 py-1 px-2 bg-red-500 hover:bg-red-600 rounded-md"
               onClick={() => deleteTask(params.id)}>
               Delete
             </button>

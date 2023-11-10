@@ -1,7 +1,7 @@
 import React, { useContext, useState} from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { BoardsContext } from '../layouts/Layout'
-import elipsis from '../assets/images/ellipsis-vertical-circle-outline.svg'
+import elipsis from '../assets/images/ellipsis-vertical.svg'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
@@ -109,7 +109,7 @@ export default function Navbar() {
         {showDelete && (
           <button
             type="button"
-            className="absolute right-0 -bottom-10 w-32 py-1 px-2 bg-red-500 hover:bg-red-600 rounded-md"
+            className="absolute right-3 -bottom-10 w-32 py-1 px-2 bg-red-500 hover:bg-red-600 rounded-md"
             onClick={() => deleteBoard(currentBoard.id)}>
             Delete board
           </button>
