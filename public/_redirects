@@ -1,2 +1,4 @@
-/api/*  https://pizza-restaurant-k7gx.onrender.com/:splat  200
+# _redirects
+
+/api/*  https://task-management-app-ibvr.onrender.com/:splat  200
 /*      /index.html  200
