@@ -12,7 +12,7 @@ function App() {
         <Route index element={<Tasks />}/>
         <Route path='/create' element={<CreateBoard />}/>
         <Route path='/add' element={<AddTask />}/>
-        <Route path='/:id' element={<TaskDetail />}/>
+        <Route path='/task/:id' element={<TaskDetail />}/>
       </Route>
     </Routes>
   )
