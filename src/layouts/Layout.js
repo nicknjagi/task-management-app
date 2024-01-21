@@ -13,7 +13,7 @@ export default function Layout() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    fetch('https://task-management-app-ibvr.onrender.com/boards')
+    fetch('/api/boards')
       .then((res) => res.json())
       .then((data) => {
         setBoards(data)
@@ -23,7 +23,7 @@ export default function Layout() {
 
   useEffect(() => {
     setIsLoading(true)
-    fetch('https://task-management-app-ibvr.onrender.com/tasks')
+    fetch('/api/tasks')
       .then((res) => res.json())
       .then((data) => {
         setTasks(data.filter((task) => task.board_id === currentBoard.id))

@@ -36,7 +36,7 @@ export default function Navbar() {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://task-management-app-ibvr.onrender.com/boards/${id}`,
+          `/api/boards/${id}`,
           {
             method: 'DELETE',
             headers: {

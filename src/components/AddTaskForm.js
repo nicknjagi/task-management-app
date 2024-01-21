@@ -34,7 +34,7 @@ export default function AddTaskForm() {
       return
     }
 
-    fetch(`https://task-management-app-ibvr.onrender.com/tasks`, {
+    fetch(`/api/tasks`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
