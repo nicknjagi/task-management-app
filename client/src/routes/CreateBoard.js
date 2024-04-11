@@ -1,15 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-import { BoardsContext } from '../layouts/Layout'
 import BackButton from '../components/BackButton'
 
 export default function CreateBoard() {
   const [name, setName] = useState('')
-  const {boards, setBoards, setCurrentBoard} = useContext(BoardsContext)
   const navigate = useNavigate()
-  const MySwal = withReactContent(Swal) 
 
   function handleChange(e){
     setName(e.target.value)
@@ -18,27 +13,6 @@ export default function CreateBoard() {
   function handleSubmit(e){
     e.preventDefault()
 
-    if (name === '') return
-
-    fetch(`https://task-management-app-ibvr.onrender.com/boards`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ board_name:name}),
-    })
-    .then(res => res.json())
-    .then((data) => {
-      setBoards([...boards, data])
-      setCurrentBoard(data)
-      MySwal.fire({
-        text: 'Board created!',
-        icon: 'success',
-        confirmButtonText: 'OK',
-      }).then((res) => {
-        navigate('/')
-      })
-    })
   }
   return (
     <section className="section">

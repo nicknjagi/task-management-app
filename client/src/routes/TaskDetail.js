@@ -2,42 +2,25 @@ import React, { useContext, useEffect, useState} from 'react'
 import { useNavigate, useParams} from 'react-router-dom'
 import Loader from '../components/Loader'
 import elipsis from '../assets/images/ellipsis-vertical.svg'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-import { BoardsContext } from '../layouts/Layout'
 import BackButton from '../components/BackButton'
-
+import Swal from 'sweetalert2'
 export default function TaskDetail() {
   const [currentTask, setCurrentTask] = useState({})
   const [defaultTask, setDefaultTask] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [showDelete, setShowDelete] = useState(false)
-  const {setTasks, currentBoard} = useContext(BoardsContext)
   const params = useParams()
   const navigate = useNavigate()
 
-  const MySwal = withReactContent(Swal) 
+
 
   useEffect(() => {
-    setIsLoading(true)
-    fetch(`https://task-management-app-ibvr.onrender.com/tasks/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCurrentTask(data)
-        setDefaultTask(data)
-        setIsLoading(false)
-      })
+
     
   }, [params.id])
 
   function fetchTasks(){
-    setIsLoading(true)
-    fetch('https://task-management-app-ibvr.onrender.com/tasks')
-      .then((res) => res.json())
-      .then((data) => {
-        setTasks(data.filter((task) => task.board_id === currentBoard.id))
-        setIsLoading(false)
-      })
+
   }
 
   function handleCheckbox(el){
@@ -58,26 +41,7 @@ export default function TaskDetail() {
 
   function handleSubmit(e){
     e.preventDefault()
-    if (currentTask === defaultTask){
-      navigate('/')
-      return
-    }
-    fetch(`https://task-management-app-ibvr.onrender.com/tasks/${params.id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(currentTask),
-    })
-    .then(res=>{
-      MySwal.fire({
-        text: 'Task has been updated!',
-        icon: 'success',
-        confirmButtonText: 'OK',
-      })
-      fetchTasks()
-      navigate('/')
-    })
+ 
   }
 
   function handleClick(){
@@ -85,7 +49,7 @@ export default function TaskDetail() {
   }
 
   function deleteTask(id){
-    MySwal.fire({
+    Swal.fire({
       title: 'Do you want to delete the task?',
       showCancelButton: true,
       icon:'warning',
