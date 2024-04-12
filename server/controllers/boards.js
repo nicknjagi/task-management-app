@@ -7,7 +7,11 @@ const getAllBoards = asyncWrapper(async (req, res) => {
     include: {
       columns: {
         include:{
-          tasks:true
+          tasks:{
+            include: {
+              subtasks:true
+            }
+          }
         }
       }
     }
