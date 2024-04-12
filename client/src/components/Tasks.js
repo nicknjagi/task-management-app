@@ -1,19 +1,18 @@
-import React, { useContext} from 'react'
+import React from 'react'
 import TaskColumn from './TaskColumn'
 import Loader from './Loader'
-import { BoardsContext } from '../layouts/Layout'
+import { useSelector } from 'react-redux'
 
 export default function Tasks() {
-  const { tasks, isLoading } = useContext(BoardsContext)
+  const {currentBoard, isLoading} = useSelector(state => state.board)
   const status = ["todo","doing","done"]
   
   if (isLoading) return <Loader />
   
   return (
     <main className='tasks-container'>
-      {status.map((el,index )=> {
-        const newArr = tasks.filter(task => task.status === el)
-        return <TaskColumn key={index} taskArr={newArr} title={el}/>
+      {currentBoard.columns.map((column)=> {
+        return <TaskColumn key={column.id} taskArr={column.tasks} title={column.name}/>
       })}
     </main>
   )
