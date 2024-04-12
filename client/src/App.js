@@ -19,9 +19,9 @@ function App() {
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route index element={<Tasks />}/>
-        <Route path='/create' element={<CreateBoard />}/>
-        <Route path='/add' element={<AddTask />}/>
-        <Route path='/:id' element={<TaskDetail />}/>
+        <Route path='/board/create' element={<CreateBoard />}/>
+        <Route path='/task/add' element={<AddTask />}/>
+        <Route path='/task/:id' element={<TaskDetail />}/>
       </Route>
     </Routes>
   )
