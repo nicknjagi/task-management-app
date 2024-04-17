@@ -3,7 +3,19 @@ const asyncWrapper = require('../middleware/async')
 const {createCustomError} = require('../errors/custom-error')
 
 const getAllColumns = asyncWrapper(async (req, res) => {
-  const columns = await prisma.column.findMany({})
+  const {boardId} = req.params
+  const columns = await prisma.column.findMany({
+    where: {
+      boardId: Number(boardId)
+    },
+    include:{
+      tasks:{
+        include:{
+          subtasks:true
+        }
+      }
+    }
+  })
   res.status(200).json({ columns })
 })
 
@@ -15,14 +27,14 @@ const createColumn = asyncWrapper(async (req, res) => {
 })
 
 const getColumn = asyncWrapper(async (req, res, next) => {
-    const { id: columnID } = req.params
+    const { columnId } = req.params
     const column = await prisma.column.findUnique({
       where: { 
-        id: Number(columnID )
+        id: Number(columnId )
       }
     })
     if (!column) {
-      return next(createCustomError(`No column with id: ${columnID}`, 404))
+      return next(createCustomError(`No column with id: ${columnId}`, 404))
     }
     res.status(200).json({ column })
 })
