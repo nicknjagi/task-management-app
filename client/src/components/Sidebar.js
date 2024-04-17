@@ -13,6 +13,7 @@ export default function Sidebar() {
   function handleClick(){
     setIsOpen(!isOpen)
   }
+
   if(isLoading){
     return <h1>Loading...</h1>
   }
@@ -22,10 +23,10 @@ export default function Sidebar() {
       <div className="relative h-full flex flex-col ">
         <h1 className="px-6 mb-6 text-2xl text-white font-medium">Kanban</h1>
         <h3 className="px-6 mb-3 text-neutral-400 text-sm tracking-widest">
-          ALL BOARDS ({boards.boards.length})
+          ALL BOARDS ({boards.length})
         </h3>
         <ul className="text-neutral-400">
-          {boards.boards.map((board) => {
+          {boards.map((board) => {
               return (
                 <li
                   key={board.id}
