@@ -13,7 +13,7 @@ datasource db {
 model Board {
   id Int @id @default(autoincrement())
   boardName String
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id],onDelete: Cascade, onUpdate: Cascade)
   userId Int
   columns Column[]
   createdAt DateTime @default(now())
@@ -35,8 +35,8 @@ model User {
 model Column {
   id Int @id @default(autoincrement())
   name String
-  color String
-  board Board @relation(fields: [boardId], references: [id])
+  color String?
+  board Board @relation(fields: [boardId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   boardId Int
   tasks Task[]
   createdAt DateTime @default(now())
@@ -46,7 +46,7 @@ model Task {
   id Int @id @default(autoincrement())
   title String
   description String?
-  column Column @relation(fields: [columnId], references: [id])
+  column Column @relation(fields: [columnId], references: [id],onDelete: Cascade, onUpdate: Cascade)
   columnId Int
   user User @relation(fields: [userId], references: [id])
   userId Int
@@ -58,7 +58,7 @@ model Subtask {
   id Int @id @default(autoincrement())
   description String
   completed Boolean @default(false)
-  task Task @relation(fields: [taskId], references: [id])
+  task Task @relation(fields: [taskId], references: [id],onDelete: Cascade, onUpdate: Cascade)
   taskId Int
   createdAt DateTime @default(now())
 }
