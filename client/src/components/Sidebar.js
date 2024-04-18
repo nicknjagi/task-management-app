@@ -1,9 +1,12 @@
 import React, {useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import eye from '../assets/images/eye.svg'
+import logo from '../assets/logo-light.svg'
+import boardIcon from '../assets/icon-board.svg'
 import eyeOff from '../assets/images/eye-off.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCurrentBoard } from '../features/board/boardSlice'
+import CreateBoardModal from './CreateBoardModal'
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(true)
@@ -21,26 +24,31 @@ export default function Sidebar() {
   return (
     <aside className={isOpen ? 'sidebar open' : 'sidebar'}>
       <div className="relative h-full flex flex-col ">
-        <h1 className="px-6 mb-6 text-2xl text-white font-medium">Kanban</h1>
-        <h3 className="px-6 mb-3 text-neutral-400 text-sm tracking-widest">
+        <div className='ml-8 mb-14'>
+          <img src={logo} alt="" />
+        </div>
+        <h3 className="px-8 mb-3 dark:text-mid-grey text-sm tracking-widest">
           ALL BOARDS ({boards.length})
         </h3>
-        <ul className="text-neutral-400">
+        <ul className="dark:text-mid-grey">
           {boards.map((board) => {
               return (
                 <li
-                  key={board.id}
+                  key={board?.id}
                   onClick={() => dispatch(setCurrentBoard(board))}
                   className={board === currentBoard ? 'active' : ''}
                 >
-                  <NavLink to="/">{board.boardName}</NavLink>
+                  <NavLink to="/" >
+                  <div className="flex items-center gap-4">
+                    <img src={boardIcon}  className='inline-block' alt="" />
+                    <span>{board?.boardName}</span>
+                  </div>
+                  </NavLink>
                 </li>
               )
             })}
         </ul>
-        <NavLink to="/board/create" className="px-6 mt-3 text-[#645FC6]">
-          + Create New Board
-        </NavLink>
+        <CreateBoardModal />
         <button onClick={handleClick}>
           {isOpen ? (
             <div className="flex items-center gap-1">
