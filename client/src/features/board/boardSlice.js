@@ -10,6 +10,7 @@ const initialState = {
     isLoading:true,
     currentBoard:null,
     creatingBoard:false,
+    updatingBoard:false,
     deletingBoard:false
 }
 
@@ -22,22 +23,33 @@ export const getBoards = createAsyncThunk('board/getBoards', async () => {
     }
 })
 
-export const createBoard = createAsyncThunk('boards/createBoard', async (board) => {
+export const createBoard = createAsyncThunk('boards/createBoard', async (board, thunkAPI) => {
     try {
         const resp = await axios.post(url, board)
         return resp.data.board
     } catch (error) {
         console.log(error);
+        return thunkAPI.rejectWithValue(error.response.data.msg)
     }
 })
 
-export const deleteBoard = createAsyncThunk('boards/deleteBoard', async (boardId) => {
+export const updateBoard = createAsyncThunk('boards/updateBoard', async (boardId) => {
+    try {
+        const resp = await axios.patch(`${url}/${boardId}`)
+        console.log(resp);
+        return resp.data
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+export const deleteBoard = createAsyncThunk('boards/deleteBoard', async (boardId, thunkAPI) => {
     try {
         const resp = await axios.delete(`${url}/${boardId}`)
-        console.log(resp);
         return resp.request.responseURL
     } catch (error) {
         console.log(error);
+        return thunkAPI.rejectWithValue(error.response.data.msg)
     }
 })
 
@@ -46,7 +58,7 @@ export const boardSlice = createSlice({
     initialState,
     reducers: {
         setCurrentBoard: (state, action) => {
-            console.log(action);
+            console.log(action.payload);
             state.currentBoard = action.payload
         }
     },
@@ -72,8 +84,23 @@ export const boardSlice = createSlice({
             toast.success('Board created!');
             history.navigate('/')
         })
-        .addCase(createBoard.rejected, (state) => {
+        .addCase(createBoard.rejected, (state, action) => {
             state.creatingBoard = false
+            state.currentBoard = state.boards[0]
+            toast.error(action.payload)
+        })
+        .addCase(updateBoard.pending, (state) => {
+            state.updatingBoard = true
+        })
+        .addCase(updateBoard.fulfilled, (state, action) => {
+            state.updatingBoard = false
+            const id = Number(action.payload.split('/').pop())
+            state.boards = state.boards.filter(board => board.id !== id)
+            state.currentBoard = [...state.boards].pop()
+            toast.success('Board updated!');
+        })
+        .addCase(updateBoard.rejected, (state) => {
+            state.updatingBoard = false
         })
         .addCase(deleteBoard.pending, (state) => {
             state.deletingBoard = true
