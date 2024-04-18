@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
@@ -7,7 +8,17 @@ module.exports = {
         noto: ['Noto Sans', 'sans-serif'],
       },
       colors: {
-        'btn-purple': '#645FC6',
+        black: '#000112',
+        "main-purple": "#635FC7",
+        "main-purple-hover": "#A8A4FF",
+        "very-dark-grey":'#20212C',
+        "dark-grey":'#3e3f4e',
+        "light-grey":'#F4F7FD',
+        "mid-grey":"#828fa3",
+        "lines-dark":'#3E3F4E',
+        "lines-light":'#E4EBFA',
+        red:'#EA5555',
+        "red-hover":'#FF9898',
       },
     },
   },
