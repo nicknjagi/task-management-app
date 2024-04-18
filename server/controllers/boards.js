@@ -20,10 +20,27 @@ const getAllBoards = asyncWrapper(async (req, res) => {
 })
 
 const createBoard = asyncWrapper(async (req, res) => {
+  const {columns, boardName, userId} = req.body
+  console.log(boardName);
+  if(columns.length > 0){
     const board = await prisma.board.create({
-      data: req.body
+      data: {
+        boardName,
+        columns: {
+          create: columns
+        },
+        userId
+      }
     })
-    res.status(201).json({ board })
+    return res.status(201).json({ board })
+  }
+    const board = await prisma.board.create({
+      data:{
+        boardName,
+        userId
+      }
+    })
+    return res.status(201).json({ board })
 })
 
 const getBoard = asyncWrapper(async (req, res, next) => {
