@@ -2,82 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
+:root:has(:is(.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open])) {
+  overflow: hidden;
+  scrollbar-gutter: initial;
+}
+
 body {
   @apply font-noto 
 }
 
 .container{
-  @apply relative min-w-full h-screen bg-[#21212D] flex 
+  @apply relative min-w-full h-screen dark:bg-very-dark-grey flex 
 }
 
 .sidebar{
-  @apply bg-[#2C2C38] py-6 absolute top-0 left-0 w-full md:min-w-[250px] md:max-w-[300px] h-full transition duration-200 -translate-x-full border-r border-slate-500 hidden md:block
+  @apply dark:bg-dark-grey py-8 absolute top-0 left-0 w-full md:min-w-[300px] md:max-w-[300px] h-full transition duration-200 -translate-x-full border-r dark:border-mid-grey scale-0 md:scale-100 origin-left
 }
 
 .open{
   @apply translate-x-0 md:relative
 }
 
-.sidebar button{
-  @apply absolute bottom-12 -right-20 ml-2 px-3 py-[1px] rotate-90 bg-[#2C2C38] text-sm text-neutral-400 rounded-2xl scale-0 md:scale-100 border border-neutral-700
+.sidebar > div > button{
+  @apply absolute bottom-12 -right-20 ml-2 px-3 py-[1px] rotate-90 dark:bg-dark-grey text-sm text-neutral-400 rounded-2xl scale-0 md:scale-100 border border-neutral-700
 }
 
-.sidebar.open button{
-  @apply right-1/2 rotate-0 translate-x-1/2 bg-[#21212D]
+.sidebar.open > div > button{
+  @apply right-1/2 rotate-0 translate-x-1/2 dark:bg-very-dark-grey
 }
 
-.sidebar ul li {
-  @apply py-2 pl-6 w-4/5 hover:bg-[#383664] hover:text-white rounded-r-full cursor-pointer
+.sidebar ul li a{
+  @apply block py-3 pl-8 mr-6 text-[15px] font-medium hover:dark:bg-white dark:hover:text-main-purple capitalize hover:font-medium rounded-r-full cursor-pointer
 }
 
-.sidebar ul li.active {
-  @apply bg-btn-purple text-white 
+.sidebar ul li.active a {
+  @apply bg-main-purple text-white 
 }
 
 .tasks-container{
-  @apply p-6 md:pl-10 text-neutral-400 flex justify-start gap-4 overflow-auto
+  @apply p-6 md:pl-10 text-neutral-400 flex justify-start gap-4 overflow-auto h-full
 }
 
 .task{
-  @apply p-4 bg-[#2C2C38] rounded-lg
+  @apply p-4 dark:bg-dark-grey rounded-lg
 }
 
 .section{
   @apply relative text-white p-6 md:px-0 md:ml-10 h-full overflow-y-auto
 }
 
-.add-task-form{
-  @apply p-4 md:p-6 mx-auto mt-10 bg-[#2C2C38] rounded-lg  w-full 
+.form{
+  @apply p-4 md:p-6 mx-auto bg-dark-grey rounded-lg  w-full 
 }
 
-.add-task-form h2 {
-  @apply text-2xl font-semibold mb-6 flex flex-col
+.form h2 {
+  @apply text-2xl font-semibold mb-6 flex flex-col 
 }
 
 .form-row{
-  @apply flex flex-col gap-2
+  @apply flex flex-col gap-3
 }
 
-.add-task-form label, h2, h3{
-  @apply font-semibold
+.form label, h2, h3{
+  @apply font-semibold dark:text-white
 }
 
-.form-row input, .add-task-form textarea, select {
-  @apply p-2 border border-neutral-600 bg-inherit rounded placeholder:text-neutral-500
+.form textarea, select, .form input, .form .input {
+  @apply p-2 border dark:border-mid-grey bg-transparent rounded placeholder:text-white placeholder:opacity-25
 }
 
-.add-task-form textarea {
+.form textarea {
   @apply h-28
 }
 
-option{
-  @apply bg-[#2C2C38]
+.dd-link{
+  @apply p-2 rounded cursor-pointer hover:bg-violet-950 hover:bg-opacity-20
 }
 
-.create-task-btn, .subtask-btn{
-  @apply rounded-3xl p-3 font-semibold
+.button{
+  @apply py-2 rounded-3xl px-3 capitalize outline-none border-transparent hover:border-transparent
 }
 
 input[type="checkbox"]{
-  @apply appearance-none w-4 h-4 border border-neutral-600 rounded-sm bg-[#2C2C38] checked:bg-btn-purple 
+  @apply appearance-none w-4 h-4 border border-neutral-600 rounded-sm dark:bg-dark-grey checked:bg-main-purple 
 }
