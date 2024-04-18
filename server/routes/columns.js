@@ -9,7 +9,7 @@ const {
   deleteColumn,
 } = require('../controllers/columns')
 
-router.route('/').get(getAllColumns).post(createColumn)
-router.route('/:id').get(getColumn).patch(updateColumn).delete(deleteColumn)
+router.route('/:boardId').get(getAllColumns).post(createColumn)
+router.route('/:boardId/:columnId').get(getColumn).patch(updateColumn).delete(deleteColumn)
 
 module.exports = router
