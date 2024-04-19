@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom'
 
 export default function Tasks() {
   const {columns, isLoading} = useSelector(state => state.column)
-  // const {currentBoard} = useSelector(state => state.board)
-
+  
   if (isLoading) return <Loader />
   
   return (
@@ -15,9 +14,15 @@ export default function Tasks() {
       {columns.map((column)=> {
         return <TaskColumn key={column.id} taskArr={column.tasks} title={column.name}/>
       })}
+      {columns.length === 0 ? (
+        <div className='w-full transition flex flex-col gap-8 items-center justify-center text-center'>
+          <p className='text-mid-grey'>This board is empty. Create a new column to get started.</p>
+          <button onClick={()=>document.getElementById('my_modal_5').showModal()} className='button px-3 bg-main-purple hover:bg-main-purple-hover transition text-white'>+ Add New Column</button>
+        </div>
+      ) :
       <div className='rounded-lg bg-gradient-to-b from-[rgb(43,44,55)]  to-[rgba(43,44,55,0.5)] hover:bg-opacity-80 min-w-[280px] max-w-[280px] h-[90%] mt-[44px] transition flex items-center justify-center'>
-        <Link to='/column/create' className='text-[#828C9E] text-lg font-semibold'>+ New Column</Link>
-      </div>
+        <button onClick={()=>document.getElementById('my_modal_5').showModal()} className='dark:text-[#828C9E] dark:hover:text-main-purple text-lg font-semibold transition'>+ New Column</button>
+      </div>}
     </main>
   )
 }
