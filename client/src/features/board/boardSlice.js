@@ -33,13 +33,14 @@ export const createBoard = createAsyncThunk('boards/createBoard', async (board, 
     }
 })
 
-export const updateBoard = createAsyncThunk('boards/updateBoard', async (boardId) => {
+export const updateBoard = createAsyncThunk('boards/updateBoard', async (board, thunkAPI) => {
     try {
-        const resp = await axios.patch(`${url}/${boardId}`)
-        console.log(resp);
+        const id = thunkAPI.getState().board.currentBoard.id;
+        const resp = await axios.patch(`${url}/${id}`, board)
         return resp.data
     } catch (error) {
         console.log(error);
+        return thunkAPI.rejectWithValue(error.response.data.msg)
     }
 })
 
@@ -58,7 +59,6 @@ export const boardSlice = createSlice({
     initialState,
     reducers: {
         setCurrentBoard: (state, action) => {
-            console.log(action.payload);
             state.currentBoard = action.payload
         }
     },
@@ -68,7 +68,11 @@ export const boardSlice = createSlice({
         })
         .addCase(getBoards.fulfilled, (state, action) => {
             state.isLoading = false
-            state.boards = action.payload
+            state.boards = action.payload.sort((a, b) => {
+                const dateA = new Date(a.createdAt);
+                const dateB = new Date(b.createdAt);
+                return dateA - dateB;
+            })
             state.currentBoard = action.payload[0]
         })
         .addCase(getBoards.rejected, (state) => {
@@ -94,13 +98,21 @@ export const boardSlice = createSlice({
         })
         .addCase(updateBoard.fulfilled, (state, action) => {
             state.updatingBoard = false
-            const id = Number(action.payload.split('/').pop())
+            // console.log(action);
+            const {board} = action.payload
+            const id = Number(board.id)
             state.boards = state.boards.filter(board => board.id !== id)
-            state.currentBoard = [...state.boards].pop()
+            state.boards = [...state.boards, board].sort((a, b) => {
+                const dateA = new Date(a.createdAt);
+                const dateB = new Date(b.createdAt);
+                return dateA - dateB;
+            })
+            state.currentBoard = board
             toast.success('Board updated!');
         })
-        .addCase(updateBoard.rejected, (state) => {
+        .addCase(updateBoard.rejected, (state, action) => {
             state.updatingBoard = false
+            toast.error(action.payload)
         })
         .addCase(deleteBoard.pending, (state) => {
             state.deletingBoard = true
