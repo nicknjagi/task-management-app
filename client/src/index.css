@@ -16,7 +16,7 @@ body {
 }
 
 .sidebar{
-  @apply dark:bg-dark-grey py-8 absolute top-0 left-0 w-full md:min-w-[300px] md:max-w-[300px] h-full transition duration-200 -translate-x-full border-r dark:border-mid-grey scale-0 md:scale-100 origin-left
+  @apply dark:bg-dark-grey py-8 absolute top-0 left-0 w-full md:max-w-[260px] lg:max-w-[300px] h-full transition duration-200 -translate-x-full border-r dark:border-mid-grey scale-0 md:scale-100 origin-left
 }
 
 .open{
@@ -63,12 +63,16 @@ body {
   @apply flex flex-col gap-3
 }
 
-.form label, h2, h3{
+.form label, .form h2, .form h3{
   @apply font-semibold dark:text-white
 }
 
-.form textarea, select, .form input, .form .input {
-  @apply p-2 border dark:border-mid-grey bg-transparent rounded placeholder:text-white placeholder:opacity-25
+.input{
+  @apply  border dark:border-mid-grey bg-transparent rounded placeholder:text-white placeholder:opacity-25 placeholder:text-sm w-full
+}
+
+.board-col{
+  @apply border py-3 px-4 dark:border-mid-grey bg-transparent rounded w-full
 }
 
 .form textarea {
@@ -76,11 +80,15 @@ body {
 }
 
 .dd-link{
-  @apply p-2 rounded cursor-pointer hover:bg-violet-950 hover:bg-opacity-20
+  @apply px-6 py-3 rounded-r-full mr-6 cursor-pointer hover:text-main-purple hover:dark:bg-white hover:bg-opacity-20 capitalize
+}
+
+.dd-btn > div{
+  @apply p-0 w-full block
 }
 
 .button{
-  @apply py-2 rounded-3xl px-3 capitalize outline-none border-transparent hover:border-transparent
+  @apply py-2 rounded-3xl capitalize outline-none border-transparent hover:border-transparent
 }
 
 input[type="checkbox"]{
