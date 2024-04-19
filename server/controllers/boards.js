@@ -59,11 +59,60 @@ const getBoard = asyncWrapper(async (req, res, next) => {
 
 const updateBoard = asyncWrapper(async (req, res) => {
     const { id: boardID } = req.params
+    const {boardName, columns, colsToDelete} = req.body
+
+    if(colsToDelete.length > 0){
+      const boards = await prisma.column.deleteMany({
+        where: {
+          id: {
+            in: colsToDelete
+          }
+        }
+      })
+    }
+
+    if(columns.length > 0) {
+      const updatedColumns = [];
+      for (const column of columns) {
+          if (column.id) {
+              // Column has an ID, update it
+              const { id, name, color } = column;
+              const updatedColumn = await prisma.column.update({
+                  where: { id },
+                  data: { name, color }
+              });
+              updatedColumns.push(updatedColumn);
+          } else {
+              // Column doesn't have an ID, create it
+              const { name} = column;
+              const newColumn = await prisma.column.create({
+                  data: { name, boardId: Number(boardID) }
+              });
+          }
+      }
+
+        // Update the board with the new boardName and the updated columns
+        const board = await prisma.board.update({
+            where: {
+                id: Number(boardID)
+            },
+            data: {
+                boardName,
+                columns: {
+                    connect: updatedColumns.map(column => ({ id: column.id })) // Connect the updated columns to the board
+                }
+            }
+        });
+
+        return res.status(200).json({ board });
+    }
     const board = await prisma.board.update({
       where: {
         id: Number(boardID)
       },
-      data: req.body
+      data: {
+        boardName
+      }
     })
     res.status(200).json({ board })
 })
