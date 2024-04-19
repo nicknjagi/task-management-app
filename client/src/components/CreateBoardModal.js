@@ -84,13 +84,14 @@ const CreateBoardModal = () => {
         setIsEmpty(false)
         setBoardIsEmpty(false)
         setColumns([])
+        document.getElementById('my_modal_4').close()
       }
 
   return (
     <div>
         {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button onClick={()=>document.getElementById('my_modal_4').showModal()}className="px-8 mt-3 dark:text-main-purple hover:opacity-90 transition">
-            <div className="flex items-center gap-4">
+        <button onClick={()=>document.getElementById('my_modal_4').showModal()}className="px-2 md:px-8 md:mt-3 dark:text-main-purple transition">
+            <div className="flex items-center gap-2 md:gap-4">
                 <img src={boardIcon}  className='inline-block' alt="" />
                 <span>+ Create New Board</span>
             </div>
@@ -99,7 +100,7 @@ const CreateBoardModal = () => {
             <div className="modal-box dark:bg-dark-grey">
                 <form method="dialog" >
                 {/* if there is a button in form, it will close the modal */}
-                <button className="button button-sm button-circle button-ghost absolute right-2 top-2">✕</button>
+                <button className="button button-circle button-ghost absolute text-xl right-8 top-6">✕</button>
                 </form>
                 <form onSubmit={handleSubmit} className="form max-w-[500px]">
                     <h2>Create new board</h2>
@@ -112,7 +113,7 @@ const CreateBoardModal = () => {
                             type="text"
                             id="boardName"
                             style={boardIsEmpty ? {borderColor: 'rgb(234 85 85)'} : {}}
-                            className={`w-full`}
+                            className='input'
                             value={boardName}
                             onChange={e => setBoardName(e.currentTarget.value)}
                             placeholder="e.g. Web Design"
@@ -125,8 +126,8 @@ const CreateBoardModal = () => {
                         <h3>Board Columns</h3>
                         {columns.length > 0 && columns.map((column, index) => {
                             return (
-                            <div key={index} className='flex gap-4'>
-                                <span className='inline-block input w-full'>{column.name}</span>
+                            <div key={index} className='flex items-center gap-4'>
+                                <span className='board-col'>{column.name}</span>
                                 <button
                                     onClick={(e) => removeColumn(column.name)}
                                     type="button"
