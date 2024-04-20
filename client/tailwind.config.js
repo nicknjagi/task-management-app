@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        noto: ['Noto Sans', 'sans-serif'],
+        jakarta: ["Plus Jakarta Sans", 'sans-serif'],
       },
       colors: {
         black: '#000112',
