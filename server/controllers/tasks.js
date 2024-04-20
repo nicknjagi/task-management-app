@@ -8,10 +8,32 @@ const getAllTasks = asyncWrapper(async (req, res) => {
 })
 
 const createTask = asyncWrapper(async (req, res) => {
+  const {columnId, title, description,subtasks, userId} = req.body
+
+  if(subtasks.length > 0){
     const task = await prisma.task.create({
-      data: req.body
+      data: {
+        title,
+        description,
+        subtasks: {
+          create: subtasks
+        },
+        userId: Number(userId),
+        columnId: Number(columnId)
+      }
     })
-    res.status(201).json({ task })
+    return res.status(201).json({ task })
+  }
+
+  const task = await prisma.task.create({
+    data:{
+      title,
+      description,
+      userId: Number(userId),
+      columnId: Number(columnId)
+    }
+  })
+  return res.status(201).json({ task })
 })
 
 const getTask = asyncWrapper(async (req, res, next) => {
