@@ -112,7 +112,7 @@ const UpdateBoardModal = ({handleClick}) => {
         <button onClick={()=>document.getElementById('my_modal_5').showModal()}className="text-mid-grey text-left transition px-2 py-2 w-full">Edit Board
         </button>
         <dialog id="my_modal_5" className="modal">
-            <div className="modal-box dark:bg-dark-grey">
+            <div className="modal-box">
                 <form method="dialog" >
                 {/* if there is a button in form, it will close the modal */}
                 <button onClick={handleClick} className="button button-circle button-ghost  text-xl absolute right-8 top-6">✕</button>
