@@ -17,7 +17,6 @@ function App() {
 
   useEffect(()=>{
     dispatch(getBoards())
-    dispatch(getColumns(currentBoard?.id))
   },[])
 
   useEffect(()=>{
