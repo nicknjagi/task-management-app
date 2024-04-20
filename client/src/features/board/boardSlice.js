@@ -14,12 +14,13 @@ const initialState = {
     deletingBoard:false
 }
 
-export const getBoards = createAsyncThunk('board/getBoards', async () => {
+export const getBoards = createAsyncThunk('board/getBoards', async (_, thunkAPI) => {
     try {
         const resp = await axios.get(url)
         return resp.data.boards
     } catch (error) {
         console.log(error);
+        return thunkAPI.rejectWithValue(error.response.data.msg)
     }
 })
 
@@ -68,15 +69,16 @@ export const boardSlice = createSlice({
         })
         .addCase(getBoards.fulfilled, (state, action) => {
             state.isLoading = false
-            state.boards = action.payload.sort((a, b) => {
+            state.boards = action.payload?.sort((a, b) => {
                 const dateA = new Date(a.createdAt);
                 const dateB = new Date(b.createdAt);
                 return dateA - dateB;
             })
             state.currentBoard = action.payload[0]
         })
-        .addCase(getBoards.rejected, (state) => {
+        .addCase(getBoards.rejected, (state, action) => {
             state.isLoading = false
+            toast.error(action.payload || 'something went wrong')
         })
         .addCase(createBoard.pending, (state) => {
             state.creatingBoard = true
@@ -91,7 +93,7 @@ export const boardSlice = createSlice({
         .addCase(createBoard.rejected, (state, action) => {
             state.creatingBoard = false
             state.currentBoard = state.boards[0]
-            toast.error(action.payload)
+            toast.error(action.payload || 'something went wrong')
         })
         .addCase(updateBoard.pending, (state) => {
             state.updatingBoard = true
@@ -112,7 +114,7 @@ export const boardSlice = createSlice({
         })
         .addCase(updateBoard.rejected, (state, action) => {
             state.updatingBoard = false
-            toast.error(action.payload)
+            toast.error(action.payload || 'something went wrong')
         })
         .addCase(deleteBoard.pending, (state) => {
             state.deletingBoard = true
