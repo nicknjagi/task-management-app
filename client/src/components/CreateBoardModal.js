@@ -57,13 +57,13 @@ const CreateBoardModal = () => {
 
     function removeColumn(col){
         setColumns(columns.filter(column => column.name !== col))
-        console.log(columns.filter(column => {
-            if (column.name !== column){
-                return true
-            }else {
-                return false
-            }
-        }));
+        // console.log(columns.filter(column => {
+        //     if (column.name !== column){
+        //         return true
+        //     }else {
+        //         return false
+        //     }
+        // }));
     }
 
     function handleSubmit(e){
@@ -90,14 +90,14 @@ const CreateBoardModal = () => {
   return (
     <div>
         {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button onClick={()=>document.getElementById('my_modal_4').showModal()}className="px-2 md:px-8 md:mt-3 dark:text-main-purple transition">
+        <button onClick={()=>document.getElementById('my_modal_4').showModal()}className="px-6 md:px-8 md:mt-3 dark:text-main-purple transition">
             <div className="flex items-center gap-2 md:gap-4">
                 <img src={boardIcon}  className='inline-block' alt="" />
                 <span>+ Create New Board</span>
             </div>
         </button>
         <dialog id="my_modal_4" className="modal">
-            <div className="modal-box dark:bg-dark-grey">
+            <div className="modal-box ">
                 <form method="dialog" >
                 {/* if there is a button in form, it will close the modal */}
                 <button className="button button-circle button-ghost absolute text-xl right-8 top-6">✕</button>
@@ -162,7 +162,7 @@ const CreateBoardModal = () => {
                                 className='input w-full '
                                 type="text"
                                 name='col'
-                                placeholder="e.g. Todo"
+                                placeholder="e.g. Doing"
                                 onChange={(e) => setCol(e.currentTarget.value)}
                             />
                             {(isEmpty && columns.length > 0) && <span className='text-sm text-red absolute right-12 top-1/2 -translate-y-1/2'>Can't be empty</span>}
