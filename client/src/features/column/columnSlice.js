@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const url = 'http://localhost:5000/api/v1/columns'
 
@@ -22,6 +23,7 @@ export const getColumns = createAsyncThunk('column/getColumns', async (boardId,t
         }
     } catch (error) {
         console.log(error);
+        return thunkAPI.rejectWithValue(error.response.data.msg || 'something went wrong')
     }
 })
 
@@ -39,6 +41,7 @@ export const columnSlice = createSlice({
         })
         .addCase(getColumns.rejected, (state, action) => {
             state.isLoading = false
+            toast.error(action.payload || 'something went wrong')
         })
     }
 })
