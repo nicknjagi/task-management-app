@@ -8,7 +8,7 @@
 }
 
 body {
-  @apply font-noto 
+  @apply font-jakarta 
 }
 
 .container{
@@ -52,7 +52,11 @@ body {
 }
 
 .form{
-  @apply p-4 md:p-6 mx-auto bg-dark-grey rounded-lg  w-full 
+  @apply p-6 mx-auto bg-dark-grey rounded-md  w-full max-w-[480px]
+}
+
+.modal-box{
+  @apply max-w-[480px] mx-auto dark:bg-dark-grey p-0 
 }
 
 .form h2 {
@@ -68,7 +72,7 @@ body {
 }
 
 .input{
-  @apply  border dark:border-mid-grey bg-transparent rounded placeholder:text-white placeholder:opacity-25 placeholder:text-sm w-full
+  @apply  border border-mid-grey focus:border-main-purple bg-transparent rounded placeholder:text-white  placeholder:opacity-40 placeholder:text-sm w-full focus:outline-none 
 }
 
 .board-col{
