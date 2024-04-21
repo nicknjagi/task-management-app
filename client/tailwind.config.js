@@ -12,7 +12,7 @@ module.exports = {
         "main-purple": "#635FC7",
         "main-purple-hover": "#A8A4FF",
         "very-dark-grey":'#20212C',
-        "dark-grey":'#3e3f4e',
+        "dark-grey":'#2B2C37',
         "light-grey":'#F4F7FD',
         "mid-grey":"#828fa3",
         "lines-dark":'#3E3F4E',
