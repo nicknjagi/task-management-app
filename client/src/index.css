@@ -40,11 +40,11 @@ body {
 }
 
 .tasks-container{
-  @apply p-6 md:pl-10 text-neutral-400 flex justify-start gap-4 overflow-auto h-full
+  @apply p-6 text-neutral-400 flex justify-start gap-4 overflow-auto h-full
 }
 
 .task{
-  @apply p-4 dark:bg-dark-grey rounded-lg
+  @apply px-4 py-6 dark:bg-dark-grey rounded-lg
 }
 
 .section{
@@ -52,7 +52,7 @@ body {
 }
 
 .form{
-  @apply p-6 mx-auto bg-dark-grey rounded-md  w-full max-w-[480px]
+  @apply p-6 mx-auto bg-dark-grey rounded-md font-medium w-full max-w-[480px]
 }
 
 .modal-box{
