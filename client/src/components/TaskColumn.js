@@ -1,18 +1,15 @@
 import React from 'react'
-import Task from './Task'
+import TaskDetailModal from './modals/TaskDetailModal'
 
 export default function TaskColumn({title, taskArr}) {
   return (
-    <section className="min-w-[240px] max-w-[240px]">
+    <section className="min-w-[280px] max-w-[280px] ">
       <h4 className="mb-6 uppercase tracking-widest text-sm">
         {title} ({taskArr.length})
       </h4>
       <div className="flex flex-col gap-4">
         {taskArr.map((task) => {
-          const doneSubtasks = task.subtasks.filter(
-            (el) => el.completed === true
-          ).length
-          return <Task key={task.id} task={task} doneSubtasks={doneSubtasks} />
+          return <TaskDetailModal onClick={() => document.getElementById('task-detail').showModal()} key={task.id} task={task}  />
         })}
       </div>
     </section>
