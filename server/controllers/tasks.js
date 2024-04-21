@@ -50,12 +50,64 @@ const getTask = asyncWrapper(async (req, res, next) => {
 })
 
 const updateTask = asyncWrapper(async (req, res) => {
+    const {title, description, columnId, subtasks, subtasksToDelete} = req.body
     const { id: taskID } = req.params
+
+    if(subtasksToDelete.length > 0){
+      const subtasks = await prisma.subtask.deleteMany({
+        where:{
+          id:{
+            in: subtasksToDelete
+          }
+        }
+      })
+    }
+
+    if(subtasks.length > 0){
+      const updatedSubtasks = []
+      for(const subtask of subtasks){
+        if(subtask.id){
+          const {id, description} = subtask
+          const updatedSubtask = await prisma.subtask.update({
+            where: {id},
+            data: {description}
+          })
+          updatedSubtasks.push(updatedSubtask)
+        } else {
+          const {description} = subtask
+          const newSubtask = await prisma.subtask.create({
+            data: {
+              description,
+              taskId: Number(taskID)
+            }
+          })
+        }
+      }
+        const task = await prisma.task.update({
+          where: {
+            id: Number(taskID)
+          },
+          data: {
+            title,
+            description,
+            columnId:Number(columnId),
+            subtasks: {
+              connect: updatedSubtasks.map(subtask => ({id: subtask.id}))
+            }
+          }
+        })
+        return res.status(200).json({ task })
+    }
+
     const task = await prisma.task.update({
-      where: {
+      where:{
         id: Number(taskID)
       },
-      data: req.body
+      data:{
+        title,
+        description,
+        columnId:Number(columnId)
+      }
     })
     res.status(200).json({ task })
 })
