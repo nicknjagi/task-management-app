@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { deleteBoard } from "../features/board/boardSlice"
+import { deleteBoard } from "../../features/board/boardSlice"
 
 const DeleteBoardModal = ({handleClick}) => {
   const {currentBoard} = useSelector(state => state.board)
@@ -7,15 +7,15 @@ const DeleteBoardModal = ({handleClick}) => {
 
   function handleDelete(){
     dispatch(deleteBoard(currentBoard.id))
-    document.getElementById('my_modal_6').close()
+    document.getElementById('delete-board').close()
     handleClick()
   }
 
   return (
     <div>
         {/* You can open the modal using document.getElementById('ID').showModal() method */}
-        <button onClick={()=>document.getElementById('my_modal_6').showModal()}className='hover:bg-transparent text-left text-red hover:text-red-hover px-2 py-2 w-full '>Delete board</button>
-        <dialog id="my_modal_6" className="modal hover:bg-transparent">
+        <button onClick={()=>document.getElementById('delete-board').showModal()}className='hover:bg-transparent text-left text-red hover:text-red-hover px-2 py-2 w-full '>Delete board</button>
+        <dialog id="delete-board" className="modal hover:bg-transparent">
         <div className="modal-box">
             <div className="p-6">
               <h3 className="font-bold text-lg text-red">Delete this board?</h3>
