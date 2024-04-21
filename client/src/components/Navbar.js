@@ -1,20 +1,16 @@
-import React, { useState } from 'react'
-import {  NavLink, useLocation, useNavigate } from 'react-router-dom'
 import elipsis from '../assets/images/ellipsis-vertical.svg'
 import dropdown from '../assets/images/chevron-back-outline.svg'
 import { useSelector, useDispatch } from 'react-redux'
-import { setCurrentBoard, deleteBoard } from '../features/board/boardSlice'
-import CreateBoardModal from './CreateBoardModal'
-import UpdateBoardModal from './UpdateBoardModal'
-import DeleteBoardModal from './DeleteBoardModal'
+import { setCurrentBoard } from '../features/board/boardSlice'
+import CreateBoardModal from './modals/CreateBoardModal'
+import EditBoardModal from './modals/EditBoardModal'
+import DeleteBoardModal from './modals/DeleteBoardModal'
 import boardIcon from '../assets/icon-board.svg'
 import logo from '../assets/logo-mobile.svg'
-import AddTaskModal from './AddTaskModal'
+import AddTaskModal from './modals/AddTaskModal'
 
 export default function Navbar() {
   const {currentBoard, boards, isLoading } = useSelector(state => state.board)
-  // const navigate = useNavigate()
-  const location = useLocation()
   const dispatch = useDispatch()
 
   const handleClick = () => {
@@ -78,13 +74,14 @@ export default function Navbar() {
 
       <div className="relative flex gap-4 justify-center items-center">
         <AddTaskModal />
+        {/* navbar dropdown */}
         <div className="dropdown dropdown-bottom dropdown-end">
           <div tabIndex={0} role="button" className="button bg-transparent border-transparent ">
             <img className='w-6' src={elipsis} alt="delete icon" />
           </div>
           <ul id='drop-menu' tabIndex={0} className={`dropdown-content z-[1] menu p-2 mt-5 shadow rounded-box w-52 flex flex-col gap-2 bg-very-dark-grey`}>
             <li className='dd-btn'>
-              <UpdateBoardModal handleClick={handleClick}/>
+              <EditBoardModal handleClick={handleClick}/>
             </li>
             <li className='dd-btn'>
               <DeleteBoardModal handleClick={handleClick}/>
