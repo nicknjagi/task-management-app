@@ -6,7 +6,7 @@ import boardIcon from '../assets/icon-board.svg'
 import eyeOff from '../assets/images/eye-off.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCurrentBoard } from '../features/board/boardSlice'
-import CreateBoardModal from './CreateBoardModal'
+import CreateBoardModal from './modals/CreateBoardModal'
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(true)
