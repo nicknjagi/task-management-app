@@ -22,8 +22,8 @@ const TaskDetailModal = ({task }) => {
         className="task"
         onClick={() => handleClick(task)}
       >
-        <h3 className="text-white capitalize font-semibold mb-2">{task.title}</h3>
-        <p className="text-sm font-bold">{doneSubtasks} of {task.subtasks.length} subtasks</p>
+        <h3 className="text-black dark:text-white capitalize font-bold mb-2">{task.title}</h3>
+        <p className="text-sm font-bold text-mid-grey">{doneSubtasks} of {task.subtasks.length} subtasks</p>
       </div>
       <dialog id={`task-${task.id}`} className="modal ">
         <div className="modal-box">
