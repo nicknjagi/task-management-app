@@ -46,6 +46,6 @@ export const columnSlice = createSlice({
     }
 })
 
-export const {} = columnSlice.actions
+// export const {} = columnSlice.actions
 
 export default columnSlice.reducer
