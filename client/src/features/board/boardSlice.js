@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from 'axios'
 import {toast} from 'react-hot-toast'
 import { history } from "../../_helpers/history";
+import { getColumns } from "../column/columnSlice";
 
 const initialState = {
     boards: [],
@@ -15,6 +16,7 @@ const initialState = {
 export const getBoards = createAsyncThunk('board/getBoards', async (_, thunkAPI) => {
     try {
         const resp = await axios.get(`${process.env.REACT_APP_URL}/api/v1/boards`)
+        thunkAPI.dispatch(getColumns(resp.data.boards[0].id))
         return resp.data.boards
     } catch (error) {
         console.log(error);
