@@ -112,7 +112,7 @@ const EditBoardForm = ({handleClick}) => {
         <div className="flex flex-col gap-6">
 
         <div className="form-row ">
-            <label htmlFor="boardName">Board Name</label>
+            <label className='text-mid-grey dark:text-white' htmlFor="boardName">Name</label>
             <div className="relative">
                 <input
                 type="text"
@@ -128,7 +128,7 @@ const EditBoardForm = ({handleClick}) => {
         </div>
 
         <div className="form-row">
-            <h3>Board Columns</h3>
+            <h3 className='text-mid-grey dark:text-white'>Columns</h3>
             {columns?.length > 0 && columns.map((column, index) => {
                 return (
                 <div key={index} className='flex justify-center gap-4'>
@@ -183,13 +183,13 @@ const EditBoardForm = ({handleClick}) => {
             <button
                 onClick={() => addColumn(col)}
                 type="button"
-                className="dark:bg-white text-sm font-bold dark:text-main-purple button">
-                add column
+                className="btn-light">
+                + add new column
             </button>
         </div>
         <button
             type='submit'
-            className="button text-sm font-semibold text-white dark:bg-main-purple dark:hover:bg-main-purple-hover transition capitalize"
+            className="btn-purple"
         >
             save changes
         </button>
