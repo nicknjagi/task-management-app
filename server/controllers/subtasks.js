@@ -30,7 +30,6 @@ const getSubtask = asyncWrapper(async (req, res, next) => {
 const updateSubtask = asyncWrapper(async (req, res) => {
     const { id: subtaskID } = req.params
     const {completed} = req.body
-    console.log(completed);
     const subtask = await prisma.subtask.update({
       where: {
         id: Number(subtaskID)
