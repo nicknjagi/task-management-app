@@ -8,6 +8,7 @@ import CreateBoardModal from '../modals/CreateBoardModal'
 import loader from '../../assets/images/Dual Ring.svg'
 import ThemeToggle from '../ThemeToggle'
 import './Sidebar.css'
+import { getColumns } from '../../features/column/columnSlice'
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(true)
@@ -16,6 +17,11 @@ export default function Sidebar() {
 
   function handleClick(){
     setIsOpen(!isOpen)
+  }
+
+  function handleBoardChange(board){
+    dispatch(setCurrentBoard(board))
+    dispatch(getColumns(board.id))
   }
   
   return (
@@ -33,7 +39,7 @@ export default function Sidebar() {
               return (
                 <li
                   key={board?.id}
-                  onClick={() => dispatch(setCurrentBoard(board))}
+                  onClick={() => handleBoardChange(board)}
                   className={board === currentBoard ? 'active' : ''}
                 >
                   <button>
