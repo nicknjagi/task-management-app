@@ -22,6 +22,10 @@ app.use('/api/v1/columns', columns)
 app.use('/api/v1/subtasks', subtasks)
 app.use('/api/v1/users', users)
 
+app.get('/', (req,res) => {
+    res.status(200).send('Kanban task management API')
+})
+
 app.use(notFound)
 app.use(errorHandlerMiddleware)
 
