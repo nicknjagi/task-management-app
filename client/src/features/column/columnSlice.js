@@ -2,8 +2,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const url = 'http://localhost:5000/api/v1/columns'
-
 const initialState = {
     columns:[],
     isLoading:true
@@ -13,12 +11,12 @@ export const getColumns = createAsyncThunk('column/getColumns', async (boardId,t
     try {
         if(!boardId){
             // fetch boards if undefined to get the current board id
-            const boards = await axios.get(`http://localhost:5000/api/v1/boards`)
+            const boards = await axios.get(`${process.env.REACT_APP_URL}/api/v1/boards`)
             const id = boards.data.boards[0].id
-            const resp = await axios.get(`${url}/${id}`)
+            const resp = await axios.get(`${process.env.REACT_APP_URL}/api/v1/columns/${id}`)
             return resp.data.columns
         }else {
-            const resp = await axios.get(`${url}/${boardId}`)
+            const resp = await axios.get(`${process.env.REACT_APP_URL}/api/v1/columns/${boardId}`)
             return resp.data.columns
         }
     } catch (error) {

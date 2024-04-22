@@ -4,8 +4,6 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { getColumns } from "../column/columnSlice";
 
-const url = 'http://localhost:5000/api/v1/tasks'
-
 const initialState = {
     tasks:[],
     isLoading:false,
@@ -16,7 +14,7 @@ const initialState = {
 
 export const createTask = createAsyncThunk('task/createTask', async (task,thunkAPI) => {
     try {
-        const resp = await axios.post(url, task)
+        const resp = await axios.post(`${process.env.REACT_APP_URL}/api/v1/tasks`, task)
         thunkAPI.dispatch(getColumns(thunkAPI.getState().board.currentBoard.id))
         return resp.data
     } catch (error) {
@@ -27,7 +25,7 @@ export const createTask = createAsyncThunk('task/createTask', async (task,thunkA
 
 export const updateTask = createAsyncThunk('task/updateTask', async (task,thunkAPI) => {
     try {
-        const resp = await axios.patch(`${url}/${task.id}`, task)
+        const resp = await axios.patch(`${process.env.REACT_APP_URL}/api/v1/tasks/${task.id}`, task)
         thunkAPI.dispatch(getColumns(thunkAPI.getState().board.currentBoard.id))
         return resp.data
     } catch (error) {
@@ -38,7 +36,7 @@ export const updateTask = createAsyncThunk('task/updateTask', async (task,thunkA
 
 export const deleteTask = createAsyncThunk('task/deleteTask', async (id,thunkAPI) => {
     try {
-        const resp = await axios.delete(`${url}/${id}`)
+        const resp = await axios.delete(`${process.env.REACT_APP_URL}/api/v1/tasks/${id}`)
         thunkAPI.dispatch(getColumns(thunkAPI.getState().board.currentBoard.id))
         return resp.data
     } catch (error) {

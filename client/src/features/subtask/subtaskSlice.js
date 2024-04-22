@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = 'http://localhost:5000/api/v1/subtasks'
-
 const initialState = {
     subtasks:[],
     isUpdating:false
@@ -10,7 +8,7 @@ const initialState = {
 
 export const updateSubtask = createAsyncThunk('subtask/updateSubtask', async (subtask, thunkAPI) => {
     try {
-        const resp = await axios.patch(`${url}/${subtask.id}`, subtask)
+        const resp = await axios.patch(`${process.env.REACT_APP_URL}/api/v1/subtasks/${subtask.id}`, subtask)
         return resp.data
     } catch (error) {
         console.log(error);

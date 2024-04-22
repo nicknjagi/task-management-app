@@ -3,8 +3,6 @@ import axios from 'axios'
 import {toast} from 'react-hot-toast'
 import { history } from "../../_helpers/history";
 
-const url = 'http://localhost:5000/api/v1/boards'
-
 const initialState = {
     boards: [],
     isLoading:true,
@@ -16,7 +14,7 @@ const initialState = {
 
 export const getBoards = createAsyncThunk('board/getBoards', async (_, thunkAPI) => {
     try {
-        const resp = await axios.get(url)
+        const resp = await axios.get(`${process.env.REACT_APP_URL}/api/v1/boards`)
         return resp.data.boards
     } catch (error) {
         console.log(error);
@@ -26,7 +24,7 @@ export const getBoards = createAsyncThunk('board/getBoards', async (_, thunkAPI)
 
 export const createBoard = createAsyncThunk('boards/createBoard', async (board, thunkAPI) => {
     try {
-        const resp = await axios.post(url, board)
+        const resp = await axios.post(`${process.env.REACT_APP_URL}/api/v1/boards`, board)
         return resp.data.board
     } catch (error) {
         console.log(error);
@@ -37,7 +35,7 @@ export const createBoard = createAsyncThunk('boards/createBoard', async (board, 
 export const updateBoard = createAsyncThunk('boards/updateBoard', async (board, thunkAPI) => {
     try {
         const id = thunkAPI.getState().board.currentBoard.id;
-        const resp = await axios.patch(`${url}/${id}`, board)
+        const resp = await axios.patch(`${process.env.REACT_APP_URL}/api/v1/boards/${id}`, board)
         return resp.data
     } catch (error) {
         console.log(error);
@@ -47,7 +45,7 @@ export const updateBoard = createAsyncThunk('boards/updateBoard', async (board, 
 
 export const deleteBoard = createAsyncThunk('boards/deleteBoard', async (boardId, thunkAPI) => {
     try {
-        const resp = await axios.delete(`${url}/${boardId}`)
+        const resp = await axios.delete(`${process.env.REACT_APP_URL}/api/v1/boards/${boardId}`)
         return resp.request.responseURL
     } catch (error) {
         console.log(error);
