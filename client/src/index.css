@@ -12,7 +12,7 @@ body {
 }
 
 .container{
-  @apply relative min-w-full h-screen bg-light-grey dark:bg-very-dark-grey flex 
+  @apply relative min-w-full h-screen bg-light-grey dark:bg-very-dark-grey flex transition
 }
 
 .logoDark, .dark .logo{
