@@ -25,6 +25,7 @@ export default function TaskDetail({ task, doneSubtasks, setDoneSubtasks }) {
     ].sort((a, b) => {
       return a.id - b.id;
     });
+    console.log(newSubtasks);
     if (completed) {
       dispatch(updateSubtask({ id, completed: false }));
     } else {
