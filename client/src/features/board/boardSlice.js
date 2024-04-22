@@ -70,9 +70,7 @@ export const boardSlice = createSlice({
         .addCase(getBoards.fulfilled, (state, action) => {
             state.isLoading = false
             state.boards = action.payload?.sort((a, b) => {
-                const dateA = new Date(a.createdAt);
-                const dateB = new Date(b.createdAt);
-                return dateA - dateB;
+                return a.id-b.id
             })
             state.currentBoard = action.payload[0]
         })
@@ -87,7 +85,7 @@ export const boardSlice = createSlice({
             state.creatingBoard = false
             state.currentBoard = action.payload
             state.boards = [...state.boards, action.payload]
-            toast.success('Board created!');
+            toast.success('Board created');
             history.navigate('/')
         })
         .addCase(createBoard.rejected, (state, action) => {
@@ -105,12 +103,10 @@ export const boardSlice = createSlice({
             const id = Number(board.id)
             state.boards = state.boards.filter(board => board.id !== id)
             state.boards = [...state.boards, board].sort((a, b) => {
-                const dateA = new Date(a.createdAt);
-                const dateB = new Date(b.createdAt);
-                return dateA - dateB;
+                return a.id - b.id
             })
             state.currentBoard = board
-            toast.success('Board updated!');
+            toast.success('Board updated');
         })
         .addCase(updateBoard.rejected, (state, action) => {
             state.updatingBoard = false
@@ -124,7 +120,7 @@ export const boardSlice = createSlice({
             const id = Number(action.payload.split('/').pop())
             state.boards = state.boards.filter(board => board.id !== id)
             state.currentBoard = [...state.boards].pop()
-            toast.success('Board deleted!');
+            toast.success('Board deleted');
         })
         .addCase(deleteBoard.rejected, (state) => {
             state.deletingBoard = false
