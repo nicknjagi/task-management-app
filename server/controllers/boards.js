@@ -3,7 +3,11 @@ const asyncWrapper = require('../middleware/async')
 const {createCustomError} = require('../errors/custom-error')
 
 const getAllBoards = asyncWrapper(async (req, res) => {
-  const boards = await prisma.board.findMany({})
+  const boards = await prisma.board.findMany({
+    orderBy: {
+      id:'asc'
+    }
+  })
   res.status(200).json({ boards })
 })
 

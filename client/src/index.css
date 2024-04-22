@@ -64,7 +64,7 @@ body {
 }
 
 .dd-link{
-  @apply px-6 py-3 font-bold rounded-r-full mr-6 cursor-pointer hover:text-main-purple hover:dark:bg-white hover:bg-opacity-20 capitalize
+  @apply px-6 py-3 font-bold rounded-r-full mr-6 cursor-pointer hover:text-main-purple hover:dark:bg-white hover:bg-main-purple hover:bg-opacity-10 capitalize
 }
 
 .dd-btn > div{
