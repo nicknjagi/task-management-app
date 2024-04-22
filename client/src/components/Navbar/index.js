@@ -1,13 +1,15 @@
-import elipsis from '../assets/images/ellipsis-vertical.svg'
-import dropdown from '../assets/images/chevron-back-outline.svg'
+import elipsis from '../../assets/images/ellipsis-vertical.svg'
+import dropdown from '../../assets/images/chevron-back-outline.svg'
 import { useSelector, useDispatch } from 'react-redux'
-import { setCurrentBoard } from '../features/board/boardSlice'
-import CreateBoardModal from './modals/CreateBoardModal'
-import EditBoardModal from './modals/EditBoardModal'
-import DeleteBoardModal from './modals/DeleteBoardModal'
-import boardIcon from '../assets/icon-board.svg'
-import logo from '../assets/logo-mobile.svg'
-import AddTaskModal from './modals/AddTaskModal'
+import { setCurrentBoard } from '../../features/board/boardSlice'
+import CreateBoardModal from '../modals/CreateBoardModal'
+import EditBoardModal from '../modals/EditBoardModal'
+import DeleteBoardModal from '../modals/DeleteBoardModal'
+import boardIcon from '../../assets/icon-board.svg'
+import logo from '../../assets/logo-mobile.svg'
+import AddTaskModal from '../modals/AddTaskModal'
+import ThemeToggle from '../ThemeToggle'
+import './Navbar.css'
 
 export default function Navbar() {
   const {currentBoard, boards, isLoading } = useSelector(state => state.board)
@@ -26,11 +28,9 @@ export default function Navbar() {
   }
 
   return (
-    <header className="dark:bg-dark-grey border-b dark:border-mid-grey w-full py-6 md:p-6 md:pr-4 lg:pl-10 flex items-center justify-between text-white">
+    <header>
       <div>
-        <h1 className="text-xl lg:text-2xl font-bold hidden md:inline-block">
-          {currentBoard?.boardName}
-        </h1>
+        <h1>{currentBoard?.boardName}</h1>
 
         {/* modal mobile */}
         {/* Open the modal using document.getElementById('ID').showModal() method */}
@@ -40,10 +40,10 @@ export default function Navbar() {
             <img className='inline w-4 -rotate-90' src={dropdown} alt="" />
           </div>
         <dialog id="drop-mobile" className="modal">
-          <div className="modal-box ">
+          <div className="modal-box bg-white dark:bg-dark-grey transition">
             <ul className='py-6'>
               <li>
-                <h3 className="hover:bg-transparent px-6 mb-4 dark:text-mid-grey text-sm tracking-widest">
+                <h3 className="hover:bg-transparent px-6 mb-4 dark:text-mid-grey text-sm font-bold tracking-widest">
                   ALL BOARDS ({boards.length})
                 </h3>
               </li>
@@ -61,8 +61,11 @@ export default function Navbar() {
                   </li>
                 )
               })}
-              <li className='py-3'>
-              <CreateBoardModal />
+              <li className='w-full mb-4 pr-6 transition'>
+                <CreateBoardModal />
+              </li>
+              <li className='mx-4'>
+                <ThemeToggle />
               </li>
             </ul>
           </div>
@@ -79,7 +82,7 @@ export default function Navbar() {
           <div tabIndex={0} role="button" className="button bg-transparent border-transparent ">
             <img className='w-6' src={elipsis} alt="delete icon" />
           </div>
-          <ul id='drop-menu' tabIndex={0} className={`dropdown-content z-[1] menu p-2 mt-5 shadow rounded-box w-52 flex flex-col gap-2 bg-very-dark-grey`}>
+          <ul id='drop-menu' tabIndex={0} className={`dropdown-content z-[1] menu p-2 mt-5 shadow rounded-box w-52 flex flex-col gap-2 bg-white dark:bg-very-dark-grey`}>
             <li className='dd-btn'>
               <EditBoardModal handleClick={handleClick}/>
             </li>
