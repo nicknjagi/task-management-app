@@ -76,15 +76,15 @@ const CreateBoardForm = () => {
         setIsEmpty(false)
         setBoardIsEmpty(false)
         setColumns([])
-        document.getElementById('my_modal_4').close()
+        document.getElementById('create-board').close()
       }
   return (
-    <form onSubmit={handleSubmit} className="form max-w-[500px]">
+    <form onSubmit={handleSubmit} className="form ">
         <h2>Create new board</h2>
         <div className="flex flex-col gap-6">
 
         <div className="form-row ">
-            <label htmlFor="boardName">Board Name</label>
+            <label className=' text-mid-grey dark:text-white' htmlFor="boardName">Name</label>
             <div className="relative">
                 <input
                 type="text"
@@ -100,7 +100,7 @@ const CreateBoardForm = () => {
         </div>
 
         <div className="form-row">
-            <h3>Board Columns</h3>
+            <h3 className=' text-mid-grey dark:text-white'>Columns</h3>
             {columns.length > 0 && columns.map((column, index) => {
                 return (
                 <div key={index} className='flex items-center gap-4'>
@@ -154,12 +154,12 @@ const CreateBoardForm = () => {
             <button
                 onClick={() => addColumn(col)}
                 type="button"
-                className="dark:bg-white text-sm font-bold dark:text-main-purple button">
-                add column
+                className="btn-light">
+                + add New column
             </button>
         </div>
         <button
-            className="button text-sm font-semibold text-white dark:bg-main-purple dark:hover:bg-main-purple-hover transition"
+            className="btn-purple"
         >
             Create New board
         </button>
