@@ -8,8 +8,14 @@ const getAllColumns = asyncWrapper(async (req, res) => {
     where: {
       boardId: Number(boardId)
     },
+    orderBy:{
+      id:'asc'
+    },
     include:{
       tasks:{
+        orderBy:{
+          id:'asc'
+        },
         include:{
           subtasks:{
             orderBy: {
