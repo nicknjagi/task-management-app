@@ -1,9 +1,10 @@
-import { createBoard } from '../../features/board/boardSlice'
-import { useDispatch } from 'react-redux'
+import { createBoard, setCurrentBoard } from '../../features/board/boardSlice'
+import { useDispatch, useSelector } from 'react-redux'
 import crossIcon from '../../assets/icon-cross.svg'
 import { useRef, useState } from 'react'
 
 const CreateBoardForm = () => {
+    const {creatingBoard} = useSelector(state => state.board)
     const [columns, setColumns] = useState([])
     const [boardName, setBoardName] = useState('')
     const [col, setCol] = useState('')
@@ -160,8 +161,9 @@ const CreateBoardForm = () => {
         </div>
         <button
             className="btn-purple"
+            disabled={creatingBoard}
         >
-            Create New board
+           {creatingBoard? 'creating board...' : ' Create New board'}
         </button>
         </div>
     </form>
