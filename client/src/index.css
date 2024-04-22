@@ -72,7 +72,7 @@ body {
 }
 
 .btn-purple{
-  @apply text-sm font-semibold text-white bg-main-purple hover:bg-main-purple-hover transition py-3 rounded-3xl capitalize outline-none border-transparent hover:border-transparent
+  @apply text-sm font-semibold text-white bg-main-purple hover:bg-main-purple-hover transition py-3 rounded-3xl capitalize outline-none border-transparent hover:border-transparent disabled:cursor-not-allowed disabled:bg-main-purple-hover
 }
 
 .btn-light{
