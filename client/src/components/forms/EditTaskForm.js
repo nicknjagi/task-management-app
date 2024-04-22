@@ -107,7 +107,7 @@ export default function EditTaskForm() {
       <h2>Edit Task</h2>
       <div className="flex flex-col gap-6">
         <div className="form-row">
-          <label htmlFor="title">Title</label>
+          <label className=" text-mid-grey dark:text-white" htmlFor="title">Title</label>
           <div className="relative">
             <input
               type="text"
@@ -123,13 +123,13 @@ export default function EditTaskForm() {
           </div>
         </div>
         <div className="form-row">
-          <label htmlFor="description">Description</label>
+          <label className=" text-mid-grey dark:text-white" htmlFor="description">Description</label>
           <textarea
             name="description"
             id="description"
             cols="30"
             rows="10"
-            className="input"
+            className="input py-2"
             placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."
             onChange={handleChange}
             value={task.description}
@@ -137,7 +137,7 @@ export default function EditTaskForm() {
         </div>
 
         <div className="form-row">
-          <h3>Subtasks</h3>
+          <h3 className=" text-mid-grey dark:text-white">Subtasks</h3>
           {task?.subtasks?.length > 0 &&
             task.subtasks.map((subtask, index) => {
               return (
@@ -178,10 +178,11 @@ export default function EditTaskForm() {
           <div className="flex gap-4 relative">
             <input
               ref={subtaskRef}
-              id={(isEmpty && task.subtasks.length > 0) && task.subtasks.length > 0 ? "input-err" : ""}
+              style={(isEmpty && task.subtasks.length > 0) ? { borderColor: "rgb(234 85 85)" } : {}}
               className="input w-full "
               type="text"
               name="subtask"
+              
               placeholder="e.g. Drink coffee & smile"
               onChange={(e) => setSubtask(e.currentTarget.value)}
             />
@@ -202,21 +203,21 @@ export default function EditTaskForm() {
           <button
             onClick={() => addSubtask(subtask)}
             type="button"
-            className="dark:bg-white text-sm font-bold dark:text-main-purple button"
+            className="btn-light"
           >
-            add subtask
+            + add new subtask
           </button>
         </div>
 
         <div className="form-row">
           <label htmlFor="edit-status" className="flex items-center justify-between">
-            <span>Status</span>
+            <span className=" text-mid-grey dark:text-white">Status</span>
             {statusIsEmpty && <span className="text-red text-sm font-normal">Choose a value</span>}
           </label>
           <select
             name="columnId"
             id="edit-status"
-            className="select select-bordered dark:bg-dark-grey focus:border-main-purple focus:outline-none w-full"
+            className="select select-bordered bg-white dark:bg-dark-grey focus:border-main-purple focus:outline-none w-full"
             onChange={handleChange}
             defaultValue={task.columnId}
           >
@@ -227,7 +228,7 @@ export default function EditTaskForm() {
           </select>
         </div>
         <button
-          className="button text-white text-sm font-bold bg-main-purple hover:bg-opacity-80 transition"
+          className="btn-purple"
         >
           Save Changes
         </button>
