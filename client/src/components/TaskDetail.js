@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Loader from "../components/Loader";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 import { useDispatch, useSelector } from "react-redux";
 import EditTaskModal from "./modals/EditTaskModal";
@@ -65,14 +64,14 @@ export default function TaskDetail({ task, doneSubtasks, setDoneSubtasks }) {
             onClick={handleClick}
             tabIndex={0}
             role="button"
-            className="p-3 pt-0 -mr-2  bg-transparent border-transparent rounded-full"
+            className="p-2 -mr-2  bg-transparent border-transparent rounded-full"
           >
             <img className="w-auto h-6" src={ellipsis} alt="icon" />
           </div>
           {showOptions && (
             <ul
               tabIndex={0}
-              className={`absolute top-6 right-full z-[1] menu p-2 shadow rounded-box w-44 dark:bg-very-dark-grey `}
+              className={`absolute top-6 right-full z-[1] menu p-2 shadow rounded-box w-44 bg-white dark:bg-very-dark-grey `}
             >
               <li className="dd-btn">
                 <EditTaskModal setShowOptions={setShowOptions} />
@@ -86,7 +85,7 @@ export default function TaskDetail({ task, doneSubtasks, setDoneSubtasks }) {
       </div>
 
       <p className="text-mid-grey text-sm mb-6">{description}</p>
-      <h3 className="text-sm font-bold">
+      <h3 className="text-sm font-bold text-mid-grey dark:text-white">
         Subtasks({doneSubtasks}) of{" "}
         ({subtasks.length})
       </h3>
@@ -95,10 +94,10 @@ export default function TaskDetail({ task, doneSubtasks, setDoneSubtasks }) {
         return (
           <div
             key={subtask.id}
-            className="subtasks my-2 px-3 rounded-md flex items-center gap-4 bg-[#21212D]"
+            className="subtasks my-2 px-3 rounded-md flex items-center gap-4 bg-light-grey hover:bg-main-purple hover:bg-opacity-25 hover:text-black dark:hover:text-white dark:bg-very-dark-grey dark:hover:bg-main-purple dark:hover:bg-opacity-25"
           >
             <input
-              className="relative peer my-3"
+              className="relative peer my-3 bg-white dark:bg-very-dark-grey appearance-none"
               type="checkbox"
               name={subtask.subtask_id}
               id={subtask.id}
@@ -113,7 +112,7 @@ export default function TaskDetail({ task, doneSubtasks, setDoneSubtasks }) {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="currentColor"
+                stroke="white"
                 strokeWidth="4"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -124,11 +123,7 @@ export default function TaskDetail({ task, doneSubtasks, setDoneSubtasks }) {
             <label
               htmlFor={subtask.id}
               style={subtask.completed ? { color: "rgb(130 143 163)" } : {}}
-              className={
-                subtask.completed
-                  ? "dark:text-mid-grey line-through w-full py-3 text-sm !font-normal	"
-                  : "w-full py-3 text-sm !font-normal"
-              }
+              className={`w-full py-3 text-sm !font-normal cursor-pointer ${subtask.completed? ' dark:text-mid-grey line-through' : 'dark:text-white text-black '}`}
             >
               {subtask.description}
             </label>
@@ -137,10 +132,10 @@ export default function TaskDetail({ task, doneSubtasks, setDoneSubtasks }) {
       })}
 
       <div className="form-row mt-6">
-        <h3>Current Status</h3>
+        <h3 className="text-mid-grey dark:text-white">Current Status</h3>
         <select
           name="columnId"
-          className="select select-bordered dark:bg-dark-grey focus:border-main-purple focus:outline-none w-full"
+          className="select select-bordered bg-white dark:bg-dark-grey focus:border-main-purple focus:outline-none w-full"
           value={columns?.filter(column => column.id === currentTask.columnId)[0].id}
           onChange={handleStatusChange}
         >
