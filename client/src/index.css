@@ -12,39 +12,19 @@ body {
 }
 
 .container{
-  @apply relative min-w-full h-screen dark:bg-very-dark-grey flex 
+  @apply relative min-w-full h-screen bg-light-grey dark:bg-very-dark-grey flex 
 }
 
-.sidebar{
-  @apply dark:bg-dark-grey py-8 absolute top-0 left-0 w-full md:max-w-[260px] lg:max-w-[300px] h-full transition duration-200 -translate-x-full border-r dark:border-mid-grey scale-0 md:scale-100 origin-left
+.logoDark, .dark .logo{
+  @apply block
 }
 
-.open{
-  @apply translate-x-0 md:relative
-}
-
-.sidebar > div > button{
-  @apply absolute bottom-12 -right-20 ml-2 px-3 py-[1px] rotate-90 dark:bg-dark-grey text-sm text-neutral-400 rounded-2xl scale-0 md:scale-100 border border-neutral-700
-}
-
-.sidebar.open > div > button{
-  @apply right-1/2 rotate-0 translate-x-1/2 dark:bg-very-dark-grey
-}
-
-.sidebar ul li a{
-  @apply block py-3 pl-8 mr-6 text-[15px] font-medium hover:dark:bg-white dark:hover:text-main-purple capitalize hover:font-medium rounded-r-full cursor-pointer
-}
-
-.sidebar ul li.active a {
-  @apply bg-main-purple text-white 
-}
-
-.tasks-container{
-  @apply p-6 text-neutral-400 flex justify-start gap-4 overflow-auto h-full
+.dark .logoDark, .logo{
+  @apply hidden
 }
 
 .task{
-  @apply px-4 py-6 dark:bg-dark-grey rounded-lg
+  @apply px-4 py-6 bg-white shadow-[0px_4px_6px_0px_rgba(54,78,126,0.11)] dark:bg-dark-grey rounded-lg transition
 }
 
 .section{
@@ -52,7 +32,7 @@ body {
 }
 
 .form{
-  @apply p-6 mx-auto bg-dark-grey rounded-md font-medium w-full max-w-[480px]
+  @apply p-6 mx-auto bg-white dark:bg-dark-grey rounded-md font-medium w-full max-w-[480px]
 }
 
 .modal-box{
@@ -60,23 +40,23 @@ body {
 }
 
 .form h2 {
-  @apply text-2xl font-semibold mb-6 flex flex-col 
+  @apply text-2xl font-bold mb-6 flex flex-col text-black dark:text-white
 }
 
 .form-row{
   @apply flex flex-col gap-3
 }
 
-.form label, .form h2, .form h3{
-  @apply font-semibold dark:text-white
+.form label, .form h3{
+  @apply font-bold
 }
 
 .input{
-  @apply  border border-mid-grey focus:border-main-purple bg-transparent rounded placeholder:text-white  placeholder:opacity-40 placeholder:text-sm w-full focus:outline-none 
+  @apply border border-mid-grey border-opacity-25 focus:border-main-purple bg-transparent rounded placeholder:text-black dark:placeholder:text-white  placeholder:opacity-40 placeholder:text-sm w-full focus:outline-none text-black dark:text-white
 }
 
 .board-col{
-  @apply border py-3 px-4 dark:border-mid-grey bg-transparent rounded w-full
+  @apply border py-3 px-4 text-black dark:text-white dark:border-lines-dark bg-transparent rounded w-full
 }
 
 .form textarea {
@@ -84,15 +64,27 @@ body {
 }
 
 .dd-link{
-  @apply px-6 py-3 rounded-r-full mr-6 cursor-pointer hover:text-main-purple hover:dark:bg-white hover:bg-opacity-20 capitalize
+  @apply px-6 py-3 font-bold rounded-r-full mr-6 cursor-pointer hover:text-main-purple hover:dark:bg-white hover:bg-opacity-20 capitalize
 }
 
 .dd-btn > div{
   @apply p-0 w-full block
 }
 
-.button{
-  @apply py-2 rounded-3xl capitalize outline-none border-transparent hover:border-transparent
+.btn-purple{
+  @apply text-sm font-semibold text-white bg-main-purple hover:bg-main-purple-hover transition py-3 rounded-3xl capitalize outline-none border-transparent hover:border-transparent
+}
+
+.btn-light{
+  @apply bg-main-purple bg-opacity-10 dark:bg-white text-sm font-bold text-main-purple py-3 rounded-3xl capitalize outline-none border-transparent hover:border-transparent
+}
+
+.cancel-btn{
+  @apply w-full bg-main-purple bg-opacity-10 dark:bg-white py-2 text-main-purple hover:text-main-purple-hover rounded-[20px] font-bold transition
+}
+
+.delete-btn{
+  @apply py-2 px-6 bg-red text-white hover:bg-red-hover rounded-[20px] font-bold transition
 }
 
 input[type="checkbox"]{
