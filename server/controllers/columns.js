@@ -11,7 +11,11 @@ const getAllColumns = asyncWrapper(async (req, res) => {
     include:{
       tasks:{
         include:{
-          subtasks:true
+          subtasks:{
+            orderBy: {
+              id: 'asc'
+            }
+          }
         }
       }
     }
