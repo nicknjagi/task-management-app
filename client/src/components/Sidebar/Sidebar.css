@@ -1,0 +1,24 @@
+.sidebar{
+    @apply bg-white dark:bg-dark-grey py-8 absolute top-0 left-0 w-full md:max-w-[260px] lg:max-w-[300px] h-full transition  -translate-x-full border-r border-lines-light dark:border-lines-dark scale-0 md:scale-100 origin-left
+  }
+  
+  .open{
+    @apply translate-x-0 md:relative
+  }
+  
+  .sidebar-toggle{
+    @apply py-3 rounded-r-full px-6 hover:bg-main-purple hover:bg-opacity-10 dark:hover:bg-white hover:text-main-purple text-sm font-bold relative
+  }
+
+  .sidebar ul{
+    @apply pr-5 lg:pr-6 
+  }
+  
+  .sidebar ul li button{
+    @apply block pl-8 py-3 text-[15px] font-bold hover:dark:bg-white hover:bg-main-purple hover:bg-opacity-10 hover:text-main-purple capitalize hover:font-bold rounded-r-full cursor-pointer w-full
+  }
+  
+  .sidebar ul li.active button {
+    @apply bg-main-purple text-white hover:bg-main-purple 
+  }
+  

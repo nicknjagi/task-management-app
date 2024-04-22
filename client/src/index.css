@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root:has(:is(.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open])) {
+  overflow: hidden;
+  scrollbar-gutter: initial;
+}
+
+body {
+  @apply font-jakarta 
+}
+
+.container{
+  @apply relative min-w-full h-screen bg-light-grey dark:bg-very-dark-grey flex 
+}
+
+.logoDark, .dark .logo{
+  @apply block
+}
+
+.dark .logoDark, .logo{
+  @apply hidden
+}
+
+.task{
+  @apply px-4 py-6 bg-white shadow-[0px_4px_6px_0px_rgba(54,78,126,0.11)] dark:bg-dark-grey rounded-lg transition
+}
+
+.section{
+  @apply relative text-white p-6 md:px-0 md:ml-10 h-full overflow-y-auto
+}
+
+.form{
+  @apply p-6 mx-auto bg-white dark:bg-dark-grey rounded-md font-medium w-full max-w-[480px]
+}
+
+.modal-box{
+  @apply max-w-[480px] mx-auto dark:bg-dark-grey p-0 
+}
+
+.form h2 {
+  @apply text-2xl font-bold mb-6 flex flex-col text-black dark:text-white
+}
+
+.form-row{
+  @apply flex flex-col gap-3
+}
+
+.form label, .form h3{
+  @apply font-bold
+}
+
+.input{
+  @apply border border-mid-grey border-opacity-25 focus:border-main-purple bg-transparent rounded placeholder:text-black dark:placeholder:text-white  placeholder:opacity-40 placeholder:text-sm w-full focus:outline-none text-black dark:text-white
+}
+
+.board-col{
+  @apply border py-3 px-4 text-black dark:text-white dark:border-lines-dark bg-transparent rounded w-full
+}
+
+.form textarea {
+  @apply h-28
+}
+
+.dd-link{
+  @apply px-6 py-3 font-bold rounded-r-full mr-6 cursor-pointer hover:text-main-purple hover:dark:bg-white hover:bg-opacity-20 capitalize
+}
+
+.dd-btn > div{
+  @apply p-0 w-full block
+}
+
+.btn-purple{
+  @apply text-sm font-semibold text-white bg-main-purple hover:bg-main-purple-hover transition py-3 rounded-3xl capitalize outline-none border-transparent hover:border-transparent
+}
+
+.btn-light{
+  @apply bg-main-purple bg-opacity-10 dark:bg-white text-sm font-bold text-main-purple py-3 rounded-3xl capitalize outline-none border-transparent hover:border-transparent
+}
+
+.cancel-btn{
+  @apply w-full bg-main-purple bg-opacity-10 dark:bg-white py-2 text-main-purple hover:text-main-purple-hover rounded-[20px] font-bold transition
+}
+
+.delete-btn{
+  @apply py-2 px-6 bg-red text-white hover:bg-red-hover rounded-[20px] font-bold transition
+}
+
+input[type="checkbox"]{
+  @apply appearance-none w-4 h-4 border border-neutral-600 rounded-sm dark:bg-dark-grey checked:bg-main-purple 
+}

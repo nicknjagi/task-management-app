@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Board {
+  id Int @id @default(autoincrement())
+  boardName String
+  user User @relation(fields: [userId], references: [id],onDelete: Cascade, onUpdate: Cascade)
+  userId Int
+  columns Column[]
+  createdAt DateTime @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  firstName String?
+  lastName  String?
+  username String @unique
+  email String @unique
+  password String 
+  boards Board[]
+  tasks Task[]
+  createdAt DateTime @default(now())
+}
+
+model Column {
+  id Int @id @default(autoincrement())
+  name String
+  color String?
+  board Board @relation(fields: [boardId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  boardId Int
+  tasks Task[]
+  createdAt DateTime @default(now())
+}
+
+model Task {
+  id Int @id @default(autoincrement())
+  title String
+  description String?
+  column Column @relation(fields: [columnId], references: [id],onDelete: Cascade, onUpdate: Cascade)
+  columnId Int
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+  subtasks Subtask[]
+  createdAt DateTime @default(now())
+}
+
+model Subtask {
+  id Int @id @default(autoincrement())
+  description String
+  completed Boolean @default(false)
+  task Task @relation(fields: [taskId], references: [id],onDelete: Cascade, onUpdate: Cascade)
+  taskId Int
+  createdAt DateTime @default(now())
+}

@@ -1,0 +1,7 @@
+header {
+    @apply bg-white dark:bg-dark-grey border-b border-lines-light dark:border-lines-dark w-full py-6 md:p-6 md:pr-4 lg:pl-10 flex items-center justify-between text-black dark:text-white transition
+}
+
+header h1 {
+    @apply text-xl lg:text-2xl font-bold hidden md:inline-block
+}
