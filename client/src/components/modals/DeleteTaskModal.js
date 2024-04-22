@@ -6,8 +6,8 @@ const DeleteTaskModal = ({setShowOptions}) => {
   const dispatch = useDispatch()
 
   function handleDelete(){
-    dispatch(deleteTask(currentTask.id))
     document.getElementById('delete-task').close()
+    dispatch(deleteTask(currentTask.id))
     // handleClick()
   }
 

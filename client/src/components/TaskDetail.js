@@ -58,7 +58,7 @@ export default function TaskDetail({ task, doneSubtasks, setDoneSubtasks }) {
   return (
     <section className={`form ${isUpdating ? 'cursor-wait': ''}`}>
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-lg font-bold !mb-0">{title}</h2>
+        <h2 className="text-lg font-bold !mb-0 max-w-[95%]">{title}</h2>
 
         <div className="dropdown dropdown-bottom dropdown-left relative">
           <div
@@ -75,7 +75,7 @@ export default function TaskDetail({ task, doneSubtasks, setDoneSubtasks }) {
               className={`absolute top-6 right-full z-[1] menu p-2 shadow rounded-box w-44 bg-white dark:bg-very-dark-grey `}
             >
               <li className="dd-btn">
-                <EditTaskModal setShowOptions={setShowOptions} />
+                <EditTaskModal setShowOptions={setShowOptions}/>
               </li>
               <li className="dd-btn">
                 <DeleteTaskModal setShowOptions={setShowOptions} />

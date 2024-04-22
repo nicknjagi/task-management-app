@@ -27,6 +27,7 @@ export const getBoards = createAsyncThunk('board/getBoards', async (_, thunkAPI)
 export const createBoard = createAsyncThunk('boards/createBoard', async (board, thunkAPI) => {
     try {
         const resp = await axios.post(`${process.env.REACT_APP_URL}/api/v1/boards`, board)
+        thunkAPI.dispatch(getColumns(resp.data.board.id))
         return resp.data.board
     } catch (error) {
         console.log(error);
@@ -38,6 +39,7 @@ export const updateBoard = createAsyncThunk('boards/updateBoard', async (board, 
     try {
         const id = thunkAPI.getState().board.currentBoard.id;
         const resp = await axios.patch(`${process.env.REACT_APP_URL}/api/v1/boards/${id}`, board)
+        thunkAPI.dispatch(getColumns(id))
         return resp.data
     } catch (error) {
         console.log(error);
@@ -48,7 +50,11 @@ export const updateBoard = createAsyncThunk('boards/updateBoard', async (board, 
 export const deleteBoard = createAsyncThunk('boards/deleteBoard', async (boardId, thunkAPI) => {
     try {
         const resp = await axios.delete(`${process.env.REACT_APP_URL}/api/v1/boards/${boardId}`)
-        return resp.request.responseURL
+        const id = Number(resp.request.responseURL.split('/').pop())
+        const boards = thunkAPI.getState().board.boards.filter(board => board.id !== id)
+        const currBoard = [...boards].pop()
+        thunkAPI.dispatch(getColumns(currBoard.id)) 
+        return boards
     } catch (error) {
         console.log(error);
         return thunkAPI.rejectWithValue(error.response.data.msg)
@@ -117,9 +123,8 @@ export const boardSlice = createSlice({
         })
         .addCase(deleteBoard.fulfilled, (state, action) => {
             state.deletingBoard = false
-            const id = Number(action.payload.split('/').pop())
-            state.boards = state.boards.filter(board => board.id !== id)
-            state.currentBoard = [...state.boards].pop()
+            state.boards = action.payload
+            state.currentBoard = [...action.payload].pop()
             toast.success('Board deleted');
         })
         .addCase(deleteBoard.rejected, (state) => {

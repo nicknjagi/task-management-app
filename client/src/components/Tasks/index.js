@@ -6,8 +6,18 @@ import './Tasks.css'
 
 export default function Tasks() {
   const {columns, isLoading} = useSelector(state => state.column)
+  const {isLoading: creatingTask} = useSelector(state => state.column)
+  const {creatingBoard, deletingBoard, updatingBoard} = useSelector(state => state.board)
   
   if (isLoading) return <Loader />
+
+  if (creatingTask) return <Loader />
+
+  if(creatingBoard) return <Loader />
+
+  if(updatingBoard) return <Loader />
+
+  if(deletingBoard) return <Loader />
   
   return (
     <main className='tasks-container'>

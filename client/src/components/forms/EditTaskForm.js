@@ -5,7 +5,7 @@ import { updateTask } from "../../features/task/taskSlice";
 
 export default function EditTaskForm() {
     const {columns} = useSelector(state => state.column)
-    const {currentTask} = useSelector(state => state.task)
+    const {currentTask, isUpdating} = useSelector(state => state.task)
     const [task, setTask] = useState({...currentTask, 'subtasksToDelete':[]});
     const [subtask, setSubtask] = useState("");
     const [subTwo, setSubTwo] = useState('')
@@ -92,14 +92,12 @@ export default function EditTaskForm() {
             setTitleIsEmpty(true)
             return
         }
-        console.log(task);
         task['subtasksToDelete'] = subtasksToDelete
 
         dispatch(updateTask(task))
         setIsEmpty(false)
         setStatusIsEmpty(false)
         setTitleIsEmpty(false)
-        document.getElementById('edit-task').close()
       }
 
   return (
@@ -229,8 +227,9 @@ export default function EditTaskForm() {
         </div>
         <button
           className="btn-purple"
+          disabled={isUpdating}
         >
-          Save Changes
+         {isUpdating ? 'Updating task...' :  'Save Changes'}
         </button>
       </div>
     </form>
