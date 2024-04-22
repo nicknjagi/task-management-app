@@ -4,7 +4,7 @@ import crossIcon from '../../assets/icon-cross.svg'
 import { updateBoard } from '../../features/board/boardSlice'
 
 const EditBoardForm = ({handleClick}) => {
-    const {currentBoard} = useSelector(state => state.board)
+    const {currentBoard, updatingBoard} = useSelector(state => state.board)
     const {columns: cols} = useSelector(state => state.column)
     const [columns, setColumns] = useState(cols)
     const [colsToDelete, setColsToDelete] = useState([])
@@ -97,10 +97,10 @@ const EditBoardForm = ({handleClick}) => {
             colsToDelete
         }
         dispatch(updateBoard(board))
-        setBoardName('')
+        // setBoardName('')
         setIsEmpty(false)
         setBoardIsEmpty(false)
-        setColumns([])
+        // setColumns([])
         setColsToDelete([])
         document.getElementById('edit-board').close()
         handleClick()
@@ -190,8 +190,9 @@ const EditBoardForm = ({handleClick}) => {
         <button
             type='submit'
             className="btn-purple"
+            disabled={updatingBoard}
         >
-            save changes
+            {updatingBoard ? 'updating...' : 'save changes'}
         </button>
         </div>
     </form>

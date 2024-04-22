@@ -1,4 +1,4 @@
-import { createBoard, setCurrentBoard } from '../../features/board/boardSlice'
+import { createBoard } from '../../features/board/boardSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import crossIcon from '../../assets/icon-cross.svg'
 import { useRef, useState } from 'react'
