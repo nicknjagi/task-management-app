@@ -16,11 +16,11 @@ function App() {
 
   useEffect(()=>{
     dispatch(getBoards())
-  },[])
+  },[dispatch])
 
   useEffect(()=>{
     dispatch(getColumns(currentBoard?.id))
-  },[currentBoard])
+  },[currentBoard,dispatch])
   
   return (
     <Routes>
