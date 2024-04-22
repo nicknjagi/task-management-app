@@ -100,7 +100,7 @@ export default function AddTaskForm() {
       <h2>Add new task</h2>
       <div className="flex flex-col gap-6">
         <div className="form-row">
-          <label htmlFor="title">Title</label>
+          <label className="text-mid-grey dark:text-white" htmlFor="title">Title</label>
           <div className="relative">
             <input
               type="text"
@@ -116,13 +116,13 @@ export default function AddTaskForm() {
           </div>
         </div>
         <div className="form-row">
-          <label htmlFor="description">Description</label>
+          <label className="text-mid-grey dark:text-white" htmlFor="description">Description</label>
           <textarea
             name="description"
             id="description"
             cols="30"
             rows="10"
-            className="input"
+            className="input py-2"
             placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."
             onChange={handleChange}
             value={task.description}
@@ -130,7 +130,7 @@ export default function AddTaskForm() {
         </div>
 
         <div className="form-row">
-          <h3>Subtasks</h3>
+          <h3 className="text-mid-grey dark:text-white">Subtasks</h3>
           {task.subtasks.length > 0 &&
             task.subtasks.map((subtask, index) => {
               return (
@@ -196,9 +196,9 @@ export default function AddTaskForm() {
           <button
             onClick={() => addSubtask(subtask)}
             type="button"
-            className="dark:bg-white text-sm font-bold dark:text-main-purple button"
+            className="btn-light"
           >
-            add subtask
+           + add new subtask
           </button>
         </div>
 
@@ -210,7 +210,7 @@ export default function AddTaskForm() {
           <select
             name="columnId"
             id="status"
-            className="select select-bordered dark:bg-dark-grey focus:border-main-purple focus:outline-none w-full"
+            className="select select-bordered bg-white dark:text-white dark:bg-dark-grey focus:border-main-purple focus:outline-none w-full"
             onChange={handleChange}
             defaultValue={''}
           >
@@ -221,7 +221,7 @@ export default function AddTaskForm() {
           </select>
         </div>
         <button
-          className="button text-white text-sm font-bold bg-main-purple hover:bg-opacity-80 transition"
+          className="btn-purple"
         >
           Create Task
         </button>
