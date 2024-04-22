@@ -5,6 +5,7 @@ import { createTask } from "../../features/task/taskSlice";
 
 export default function AddTaskForm() {
     const {columns} = useSelector(state => state.column)
+    const {isLoading} = useSelector(state => state.task)
     const [task, setTask] = useState({
       title: "",
       userId:1,
@@ -223,7 +224,7 @@ export default function AddTaskForm() {
         <button
           className="btn-purple"
         >
-          Create Task
+          {isLoading ? 'Creating Task...' : 'Create Task'}
         </button>
       </div>
     </form>
