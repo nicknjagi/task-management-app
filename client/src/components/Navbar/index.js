@@ -41,7 +41,7 @@ export default function Navbar() {
             <img className='inline w-4 -rotate-90' src={dropdown} alt="" />
           </div>
         <dialog id="drop-mobile" className="modal">
-          <div className="modal-box bg-white dark:bg-dark-grey transition">
+          <div className="modal-box bg-white dark:bg-dark-grey transition shadow-[0px_10px_20px_0px_rgba(54,78,126,0.25)]">
             <ul className='py-6'>
               <li>
                 <h3 className="hover:bg-transparent px-6 mb-4 dark:text-mid-grey text-sm font-bold tracking-widest">

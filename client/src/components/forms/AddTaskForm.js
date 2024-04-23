@@ -205,7 +205,7 @@ export default function AddTaskForm() {
 
         <div className="form-row">
           <label htmlFor="status" className="flex items-center justify-between">
-            <span>Status</span>
+            <span className="text-mid-grey dark:text-white">Status</span>
             {statusIsEmpty && <span className="text-red text-sm font-normal">Choose a value</span>}
           </label>
           <select

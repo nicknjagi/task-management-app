@@ -56,7 +56,7 @@ body {
 }
 
 .board-col{
-  @apply border py-3 px-4 text-black dark:text-white dark:border-lines-dark bg-transparent rounded w-full
+  @apply border py-3 px-4 text-black dark:text-white border-mid-grey border-opacity-25 bg-transparent rounded w-full
 }
 
 .form textarea {
