@@ -41,7 +41,7 @@ Users are able to:
 
 - Repo URL: [github](https://github.com/nicknjagi/task-management-app)
 - Live Site URL: [demo](https://legendary-kashata-345a50.netlify.app/)
-- 
+  
 ## My process
 
 ### Built with
