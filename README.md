@@ -1,40 +1,74 @@
-# Task Management App
+# Frontend Mentor - Kanban task management web app solution
 
-This application lets you manage your tasks, among other features.
+This is a solution to the [Kanban task management web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/kanban-task-management-web-app-wgQLt-HlbB). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-### Built using
+## Table of contents
 
-- React
-- React router
-- Tailwind CSS 
-- Ionicons [view](https://ionic.io/ionicons)
-- Loader from [loading.io](https://loading.io)
-- SweertAlert2 [view](https://sweetalert2.github.io/)
+- [Frontend Mentor - Kanban task management web app solution](#frontend-mentor---kanban-task-management-web-app-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [Useful resources](#useful-resources)
+  - [Author](#author)
 
-### Local setup
+## Overview
 
-- fork and clone the repo
-- run ```npm instal``` and ```npm start```
-- run ```json-server --watch backend/db.json``` and update fetch url in components.
+### The challenge
 
-### Users are able to:
-- Create, read, update, and delete boards and tasks.
+Users are able to:
+
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Create, read, update, and delete boards and tasks
+- Receive form validations when trying to create/edit boards and tasks
 - Mark subtasks as complete and move tasks between columns
+- Hide/show the board sidebar
+- Toggle the theme between light/dark modes
+<!-- - **Bonus**: Allow users to drag and drop tasks to change their status and re-order them in a column -->
+- **Bonus**: Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
+- **Bonus**: Build this project as a full-stack application
+
+### Screenshot
+
+![](./screenshot.png)
+
 
 ### Links
 
-- Live site - [view](https://legendary-kashata-345a50.netlify.app/)
-- API -[view](https://task-management-app-ibvr.onrender.com/boards)
+- Repo URL: [github](https://github.com/nicknjagi/task-management-app)
+- Live Site URL: [demo](https://legendary-kashata-345a50.netlify.app/)
+- 
+## My process
 
-### Author
+### Built with
 
+- Semantic HTML5 markup
+- Tailwind CSs
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [daisyUI](https://daisyui.com/) - For styles
+- PostgreSQL
+- [Prisma](https://www.prisma.io/docs/orm) - ORM
+- [Express js](https://expressjs.com/) 
+- [React hot toast](https://react-hot-toast.com/) 
+- [Redux toolkit](https://redux-toolkit.js.org/) 
+
+
+### Useful resources
+
+- [zellwk.com](https://zellwk.com/blog/how-to-write-mobile-first-css/) - An article on how to write mobile-first CSS
+- [internetingishard.com](https://www.internetingishard.com/html-and-css/flexbox/) - This Flexbox tutorial is a friendly tutorial for modern CSS layouts by [Interneting Is Hard](https://www.internetingishard.com/).
+
+
+## Author
+
+- Website - [nicholasnjagi.netlify.app](https://nicholasnjagi.netlify.app)
+- Frontend Mentor - [@nicknjagi](https://www.frontendmentor.io/profile/nicknjagi)
 - Twitter - [@nick_njagi](https://www.twitter.com/nick_njagi)
 
-### License
-Copyright 2023 
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
