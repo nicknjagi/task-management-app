@@ -12,12 +12,12 @@ const CreateBoardModal = () => {
         </button>
         <dialog id="create-board" className="modal">
             <div className="modal-box ">
-                <form method="dialog" >
-                {/* if there is a button in form, it will close the modal */}
-                <button className="button button-circle button-ghost absolute text-xl right-8 top-6">✕</button>
-                </form>
                 <CreateBoardForm />
             </div>
+            <form method="dialog" className="modal-backdrop">
+            {/* if there is a button in form, it will close the modal */}
+            <button>✕</button>
+            </form>
         </dialog>
     </div>
   )
