@@ -10,6 +10,7 @@ const tasks = require('./routes/tasks')
 const columns = require('./routes/columns')
 const subtasks = require('./routes/subtasks')
 const users = require('./routes/users')
+const keepAlive = require('./runner')
 
 // middleware
 app.use(cors())
