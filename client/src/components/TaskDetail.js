@@ -72,7 +72,7 @@ export default function TaskDetail({ task, doneSubtasks, setDoneSubtasks }) {
           {showOptions && (
             <ul
               tabIndex={0}
-              className={`absolute top-6 right-full z-[1] menu p-2 shadow rounded-box w-44 bg-white dark:bg-very-dark-grey `}
+              className={`absolute top-6 right-full z-[1] p-2 shadow rounded-box w-44 bg-white dark:bg-very-dark-grey `}
             >
               <li className="dd-btn">
                 <EditTaskModal setShowOptions={setShowOptions}/>
@@ -136,7 +136,7 @@ export default function TaskDetail({ task, doneSubtasks, setDoneSubtasks }) {
         <h3 className="text-mid-grey dark:text-white">Current Status</h3>
         <select
           name="columnId"
-          className="select select-bordered bg-white dark:bg-dark-grey focus:border-main-purple focus:outline-none w-full"
+          className="select select-bordered bg-white dark:bg-dark-grey focus:border-main-purple focus:outline-none w-full pointer-events-none"
           value={columns?.filter(column => column.id === currentTask.columnId)[0].id}
           onChange={handleStatusChange}
         >

@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import crossIcon from '../../assets/icon-cross.svg'
 import { updateBoard } from '../../features/board/boardSlice'
-
 const EditBoardForm = ({handleClick}) => {
+
     const {currentBoard, updatingBoard} = useSelector(state => state.board)
     const {columns: cols} = useSelector(state => state.column)
     const [columns, setColumns] = useState(cols)
@@ -102,8 +102,8 @@ const EditBoardForm = ({handleClick}) => {
         setBoardIsEmpty(false)
         // setColumns([])
         setColsToDelete([])
-        document.getElementById('edit-board').close()
         handleClick()
+        document.getElementById('edit-board').close()
     }
 
     return (

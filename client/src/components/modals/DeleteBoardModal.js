@@ -14,7 +14,7 @@ const DeleteBoardModal = ({handleClick}) => {
   return (
     <div>
         {/* You can open the modal using document.getElementById('ID').showModal() method */}
-        <button onClick={()=>document.getElementById('delete-board').showModal()}className='hover:bg-transparent text-left text-red hover:text-red-hover px-2 py-2 w-full '>Delete board</button>
+        <button onClick={()=>document.getElementById('delete-board').showModal()}className='hover:bg-light-grey hover:dark:bg-dark-grey text-left text-red hover:text-red-hover px-2 py-2 w-full rounded'>Delete board</button>
         <dialog id="delete-board" className="modal hover:bg-transparent">
         <div className="modal-box">
             <div className="p-6 bg-white dark:bg-dark-grey">

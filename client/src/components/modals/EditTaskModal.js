@@ -10,7 +10,7 @@ const EditTaskModal = ({setShowOptions, id}) => {
   return (
     <div>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
-      <button className="text-mid-grey text-left transition px-2 py-2 w-full" onClick={handleClick}>Edit Task</button>
+      <button className="text-mid-grey text-left transition px-2 py-2 w-full hover:bg-light-grey hover:dark:bg-dark-grey rounded" onClick={handleClick}>Edit Task</button>
       <dialog id="edit-task" className="modal">
         <div className="modal-box">
           <EditTaskForm />

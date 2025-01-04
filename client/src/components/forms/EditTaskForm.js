@@ -130,7 +130,7 @@ export default function EditTaskForm() {
             className="input py-2"
             placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."
             onChange={handleChange}
-            value={task.description}
+            value={task.description ? task.description : ''}
           ></textarea>
         </div>
 

@@ -16,7 +16,7 @@ const initialState = {
 export const getBoards = createAsyncThunk('board/getBoards', async (_, thunkAPI) => {
     try {
         const resp = await axios.get(`${process.env.REACT_APP_URL}/api/v1/boards`)
-        thunkAPI.dispatch(getColumns(resp.data.boards[0].id))
+        thunkAPI.dispatch(getColumns(resp.data.boards[0]?.id))
         return resp.data.boards
     } catch (error) {
         console.log(error);

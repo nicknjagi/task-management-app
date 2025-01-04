@@ -78,6 +78,7 @@ const CreateBoardForm = () => {
         setBoardIsEmpty(false)
         setColumns([])
         document.getElementById('create-board').close()
+        document.getElementById("drop-mobile").close()
       }
   return (
     <form onSubmit={handleSubmit} className="form ">
