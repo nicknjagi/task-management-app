@@ -104,7 +104,7 @@ export default function Navbar() {
       <div className="relative flex gap-4 justify-center items-center">
         <div className="avatar">
           <div className="w-10 rounded-xl">
-            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="user profile pic"/>
           </div>
         </div>
         <AddTaskModal />
@@ -115,7 +115,7 @@ export default function Navbar() {
             role="button"
             className="button bg-transparent border-transparent "
           >
-            <img className="w-6" src={elipsis} alt="delete icon" />
+            <img className="w-6" src={elipsis} alt="" />
           </div>
           <ul
             id="drop-menu"
