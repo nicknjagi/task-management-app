@@ -9,6 +9,7 @@ const initialState = {
 
 export const getColumns = createAsyncThunk('column/getColumns', async (boardId,thunkAPI) => {
     try {
+        if(boardId === undefined) return []
         const resp = await axios.get(`${process.env.REACT_APP_URL}/api/v1/columns/${boardId}`)
         return resp.data.columns
     } catch (error) {

@@ -14,7 +14,7 @@ const DeleteTaskModal = ({setShowOptions}) => {
   return (
     <div>
         {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button className='hover:bg-transparent text-left text-red hover:text-red-hover px-2 py-2 w-full ' onClick={()=>document.getElementById('delete-task').showModal()}>Delete Task</button>
+        <button className='hover:bg-transparent text-left text-red hover:text-red-hover px-2 py-2 w-full hover:bg-light-grey hover:dark:bg-dark-grey rounded' onClick={()=>document.getElementById('delete-task').showModal()}>Delete Task</button>
         <dialog id="delete-task" className="modal">
           <div className="modal-box ">
           <div className="p-6 bg-white dark:bg-dark-grey">
