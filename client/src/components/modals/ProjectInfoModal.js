@@ -6,10 +6,10 @@ const ProjectInfoModal = () => {
 
   return (
     <div
-      className={`fixed rounded shadow overflow-hidden bottom-2 md:bottom-5 ${
+      className={`fixed rounded shadow overflow-hidden bottom-5 ${
         isOpen
-          ? "left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-4 md:bottom-6  w-full md:w-auto"
-          : "right-1"
+          ? "left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-5 md:bottom-6 w-[90%] md:w-auto"
+          : "right-5 motion-preset-oscillate motion-duration-2000 hover:motion-paused"
       } transition-all duration-300`}
     >
       <div
