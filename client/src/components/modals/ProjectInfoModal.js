@@ -26,7 +26,7 @@ const ProjectInfoModal = () => {
           {isOpen ? <CircleX color="#635fc7" /> : <BadgeInfo color="#635fc7" />}
         </button>
         <p
-          className={`${
+          className={`font-semibold ${
             isOpen
               ? "relative translate-x-0 w-full md:max-w-[410px] lg:max-w-[600px]"
               : "absolute -translate-x-full"
